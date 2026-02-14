@@ -177,6 +177,23 @@
         h1, h2, h3 {
             text-wrap: balance;
         }
+
+        /* FIX: Prevent Horizontal Scroll Global */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        section, div {
+            max-width: 100%;
+        }
+        
+        /* FIX: Gradient Overflow on Mobile */
+        @media (max-width: 640px) {
+            .hero-gradient {
+                width: 100%;
+                overflow: hidden;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-brand-text dark:text-brand-darktext selection:bg-brand-sage selection:text-white dark:bg-brand-darkmain flex flex-col min-h-screen overflow-x-hidden">
@@ -263,14 +280,15 @@
         <!-- Background Image with Parallax feel -->
         <!-- INTRUKSI: Ganti dengan foto ASLI fasad klinik yang megah / ruang bersalin VVIP untuk trust maksimal -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Bidan Maryamah Maternal Care" class="w-full h-full object-cover object-center opacity-60 dark:opacity-[0.35] animate-pulse-slow">
+            <!-- FIX: Added max-w-full to prevent image overflow -->
+            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Bidan Maryamah Maternal Care" class="w-full h-full object-cover object-center max-w-full opacity-60 dark:opacity-[0.35] animate-pulse-slow">
         </div>
         
         <!-- FIX 4: Tambahkan inline gradient class (bg-gradient-to-r) agar overlay lebih solid/kontras di mobile -->
         <div class="absolute inset-0 z-10 hero-gradient bg-gradient-to-r from-brand-cream/95 via-brand-cream/75 to-transparent dark:from-brand-darkmain/95 dark:via-brand-darkmain/80 dark:to-transparent lg:bg-none"></div>
 
-        <!-- FIX 3: Ubah px-6 menjadi px-5 sm:px-6 agar teks tidak terlalu mepet kiri -->
-        <div class="relative z-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 w-full pt-20" data-aos="fade-up" data-aos-duration="1200">
+        <!-- FIX 3: Ubah px-6 menjadi px-5 sm:px-6 agar teks tidak terlalu mepet kiri, add overflow-hidden -->
+        <div class="relative z-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 w-full pt-20 overflow-hidden" data-aos="fade-up" data-aos-duration="1200">
             <div class="max-w-2xl">
                 <span class="text-brand-gold dark:text-brand-darkgold font-serif italic text-lg md:text-xl mb-4 block animate-fade-in-up">Boutique Maternity Clinic & Spa</span>
                 

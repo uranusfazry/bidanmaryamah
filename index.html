@@ -100,7 +100,7 @@
         body {
             background-color: #fcfaf5;
             color: #2c352d;
-            overflow-x: hidden;
+            overflow-x: hidden; /* FIX: Prevent horizontal scroll globally */
             /* IMPROVEMENT: Better text rendering */
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
@@ -179,10 +179,11 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased text-brand-text dark:text-brand-darktext selection:bg-brand-sage selection:text-white dark:bg-brand-darkmain flex flex-col min-h-screen">
+<body class="font-sans antialiased text-brand-text dark:text-brand-darktext selection:bg-brand-sage selection:text-white dark:bg-brand-darkmain flex flex-col min-h-screen overflow-x-hidden">
 
     <!-- Navbar -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4 md:py-6 dark:bg-brand-darkmain/90 dark:border-b border-transparent dark:border-brand-darkborder">
+    <!-- FIX 6: Ubah padding navbar py-4 lg:py-6 agar lebih ringkas di mobile -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4 lg:py-6 dark:bg-brand-darkmain/90 dark:border-b border-transparent dark:border-brand-darkborder">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
             <!-- IMPROVEMENT: Added transform hover -->
             <a href="#" class="text-xl md:text-2xl font-serif font-bold tracking-wide text-brand-text dark:text-brand-darktext flex items-center gap-2 hover:opacity-90 transition-opacity" aria-label="Beranda">
@@ -257,20 +258,24 @@
     </nav>
 
     <!-- 1. HERO SECTION -->
-    <!-- IMPROVEMENT: Adjusted min-h for mobile (75vh) vs desktop (85vh) to fix address bar overflow -->
-    <section id="hero" class="relative w-full min-h-[75vh] md:min-h-[85vh] flex items-center bg-brand-cream dark:bg-brand-darkmain overflow-hidden">
+    <!-- FIX 1: Ubah min-h-[75vh] menjadi min-h-[70vh] untuk mobile agar scroll lebih ringan -->
+    <section id="hero" class="relative w-full min-h-[70vh] lg:min-h-[85vh] flex items-center bg-brand-cream dark:bg-brand-darkmain overflow-hidden">
         <!-- Background Image with Parallax feel -->
         <!-- INTRUKSI: Ganti dengan foto ASLI fasad klinik yang megah / ruang bersalin VVIP untuk trust maksimal -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Bidan Maryamah Maternal Care" class="w-full h-full object-cover object-center opacity-60 dark:opacity-[0.35] animate-pulse-slow">
         </div>
-        <div class="absolute inset-0 z-10 hero-gradient"></div>
+        
+        <!-- FIX 4: Tambahkan inline gradient class (bg-gradient-to-r) agar overlay lebih solid/kontras di mobile -->
+        <div class="absolute inset-0 z-10 hero-gradient bg-gradient-to-r from-brand-cream/95 via-brand-cream/75 to-transparent dark:from-brand-darkmain/95 dark:via-brand-darkmain/80 dark:to-transparent lg:bg-none"></div>
 
-        <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-20" data-aos="fade-up" data-aos-duration="1200">
+        <!-- FIX 3: Ubah px-6 menjadi px-5 sm:px-6 agar teks tidak terlalu mepet kiri -->
+        <div class="relative z-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 w-full pt-20" data-aos="fade-up" data-aos-duration="1200">
             <div class="max-w-2xl">
                 <span class="text-brand-gold dark:text-brand-darkgold font-serif italic text-lg md:text-xl mb-4 block animate-fade-in-up">Boutique Maternity Clinic & Spa</span>
-                <!-- IMPROVEMENT: Clamp font size and better line height for mobile -->
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-text dark:text-brand-darktext leading-tight mb-4 md:mb-6">
+                
+                <!-- FIX 2: Scaling font heading (text-3xl di mobile) agar tidak terpotong -->
+                <h1 class="text-3xl sm:text-4xl lg:text-6xl font-serif text-brand-text dark:text-brand-darktext leading-tight mb-4 md:mb-6">
                     Pendampingan Profesional untuk Ibu dan Buah Hati.
                 </h1>
                 
@@ -279,11 +284,12 @@
                     Dipercaya lebih dari 1.200 persalinan dengan pendekatan personal dan penuh empati.
                 </p>
 
+                <!-- IMPROVEMENT: Relaxed leading for mobile readability -->
                 <p class="text-base md:text-lg font-light text-gray-600 dark:text-brand-darkmuted mb-8 md:mb-10 leading-relaxed max-w-xl">
                     Menghadirkan layanan kebidanan mapan di Bandung yang dipadukan dengan perawatan spa premium. Tenang, privat, dan standar medis terjamin.
                 </p>
                 
-                <!-- IMPROVEMENT: Mobile Buttons stacked full width, Desktop row -->
+                <!-- FIX 5: Button Full Width di Mobile (w-full sm:w-auto) -->
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="#kontak" class="w-full sm:w-auto px-8 py-4 bg-brand-sage text-white text-center rounded-full hover:bg-brand-sagedark dark:bg-brand-darksage dark:text-brand-darkmain dark:hover:bg-[#cbe2b3] transition duration-300 shadow-premium hover:shadow-lg dark:shadow-[0_0_15px_rgba(184,201,163,0.25)] flex items-center justify-center gap-2 font-medium active:scale-95">
                         Reservasi Sekarang

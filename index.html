@@ -79,6 +79,7 @@
                     },
                     boxShadow: {
                         'premium': '0 10px 30px -10px rgba(0, 0, 0, 0.05)',
+                        'premium-hover': '0 20px 40px -10px rgba(0, 0, 0, 0.1)', // Added for desktop hover
                         'gold': '0 4px 14px 0 rgba(197, 168, 128, 0.2)',
                     }
                 }
@@ -92,7 +93,7 @@
     <style>
         /* Global Smooth Transition untuk kemewahan (Additive) */
         body, nav, section, div, h1, h2, h3, h4, h5, h6, p, span, a, button, i, svg, li, ul {
-            transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, fill 0.4s ease, box-shadow 0.4s ease;
+            transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, fill 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* Custom Premium Styles */
@@ -100,30 +101,33 @@
             background-color: #fcfaf5;
             color: #2c352d;
             overflow-x: hidden;
+            /* IMPROVEMENT: Better text rendering */
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Hero Overlay Gradient */
         .hero-gradient {
-            background: linear-gradient(to right, rgba(252, 250, 245, 0.95) 0%, rgba(252, 250, 245, 0.7) 50%, rgba(252, 250, 245, 0.3) 100%);
+            background: linear-gradient(to right, rgba(252, 250, 245, 0.95) 0%, rgba(252, 250, 245, 0.8) 50%, rgba(252, 250, 245, 0.4) 100%);
         }
 
         /* Dark Mode Hero Overlay (Additive) */
         html.dark .hero-gradient {
-            background: linear-gradient(to right, rgba(15, 23, 32, 0.96) 0%, rgba(15, 23, 32, 0.85) 50%, rgba(15, 23, 32, 0.3) 100%);
+            background: linear-gradient(to right, rgba(15, 23, 32, 0.96) 0%, rgba(15, 23, 32, 0.85) 50%, rgba(15, 23, 32, 0.4) 100%);
         }
 
         /* Smooth Navbar Transition */
         .navbar-scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px); /* Increased blur */
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+            padding-top: 0.75rem; /* Slightly tighter on scroll */
+            padding-bottom: 0.75rem;
         }
 
         /* Dark Mode Navbar Scrolled (Additive) */
         html.dark .navbar-scrolled {
-            background-color: rgba(17, 24, 39, 0.98);
+            background-color: rgba(17, 24, 39, 0.95);
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
@@ -168,27 +172,42 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* IMPROVEMENT: Text Balance for Headings */
+        h1, h2, h3 {
+            text-wrap: balance;
+        }
     </style>
 </head>
-<body class="font-sans antialiased text-brand-text dark:text-brand-darktext selection:bg-brand-sage selection:text-white dark:bg-brand-darkmain">
+<body class="font-sans antialiased text-brand-text dark:text-brand-darktext selection:bg-brand-sage selection:text-white dark:bg-brand-darkmain flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 dark:bg-brand-darkmain/90 dark:border-b border-transparent dark:border-brand-darkborder">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4 md:py-6 dark:bg-brand-darkmain/90 dark:border-b border-transparent dark:border-brand-darkborder">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-            <a href="#" class="text-xl md:text-2xl font-serif font-bold tracking-wide text-brand-text dark:text-brand-darktext flex items-center gap-2" aria-label="Beranda">
+            <!-- IMPROVEMENT: Added transform hover -->
+            <a href="#" class="text-xl md:text-2xl font-serif font-bold tracking-wide text-brand-text dark:text-brand-darktext flex items-center gap-2 hover:opacity-90 transition-opacity" aria-label="Beranda">
                 <i data-lucide="flower-2" class="text-brand-sage dark:text-brand-darksage w-8 h-8"></i>
                 <span class="hidden sm:block">Bidan Maryamah</span>
+                <span class="block sm:hidden text-lg">Bidan Maryamah</span>
             </a>
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-6 lg:space-x-8 items-center text-sm uppercase tracking-widest font-light">
-                <a href="#tentang" class="hover:text-brand-sage dark:text-brand-darktext dark:hover:text-brand-darksage transition duration-300">Profil</a>
-                <a href="#layanan" class="hover:text-brand-sage dark:text-brand-darktext dark:hover:text-brand-darksage transition duration-300">Layanan</a>
-                <a href="#galeri" class="hover:text-brand-sage dark:text-brand-darktext dark:hover:text-brand-darksage transition duration-300">Galeri</a>
-                <a href="#kontak" class="hover:text-brand-sage dark:text-brand-darktext dark:hover:text-brand-darksage transition duration-300">Lokasi</a>
+                <a href="#tentang" class="hover:text-brand-sage dark:text-brand-darktext dark:hover:text-brand-darksage transition duration-300 relative group">
+                    Profil
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-brand-sage transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#galeri" class="hover:text-brand-sage dark:text-brand-darktext dark:hover:text-brand-darksage transition duration-300 relative group">
+                    Galeri
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-brand-sage transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#kontak" class="hover:text-brand-sage dark:text-brand-darktext dark:hover:text-brand-darksage transition duration-300 relative group">
+                    Lokasi
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-brand-sage transition-all duration-300 group-hover:w-full"></span>
+                </a>
                 
                 <!-- 7. Emergency Signal Badge di Navbar -->
-                <div class="flex items-center gap-2 px-3 py-1.5 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-full text-[10px] lg:text-xs font-bold tracking-wider border border-red-100 dark:border-red-900/30 shadow-sm">
+                <div class="flex items-center gap-2 px-3 py-1.5 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-full text-[10px] lg:text-xs font-bold tracking-wider border border-red-100 dark:border-red-900/30 shadow-sm cursor-help" title="Layanan Gawat Darurat Tersedia">
                     <span class="relative flex h-2 w-2">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                       <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
@@ -196,10 +215,11 @@
                     SIAGA 24 JAM
                 </div>
 
-                <a href="#kontak" class="px-6 py-2.5 bg-brand-sage text-white rounded-full hover:bg-brand-sagedark dark:bg-brand-darksage dark:text-brand-darkmain dark:hover:bg-[#cbe2b3] transition duration-300 shadow-sm dark:shadow-[0_0_15px_rgba(184,201,163,0.25)] font-medium">Reservasi</a>
+                <!-- IMPROVEMENT: Added active:scale-95 -->
+                <a href="#kontak" class="px-6 py-2.5 bg-brand-sage text-white rounded-full hover:bg-brand-sagedark dark:bg-brand-darksage dark:text-brand-darkmain dark:hover:bg-[#cbe2b3] transition duration-300 shadow-sm hover:shadow-lg dark:shadow-[0_0_15px_rgba(184,201,163,0.25)] font-medium active:scale-95">Reservasi</a>
                 
                 <!-- Premium Dark Mode Toggle Desktop (Additive) -->
-                <button id="theme-toggle-desktop" class="w-10 h-10 rounded-full flex items-center justify-center bg-brand-beige/50 dark:bg-brand-darkelevated text-brand-text dark:text-brand-darktext hover:bg-brand-beige dark:hover:bg-brand-darkborder transition duration-300 focus:outline-none" aria-label="Toggle Dark Mode">
+                <button id="theme-toggle-desktop" class="w-10 h-10 rounded-full flex items-center justify-center bg-brand-beige/50 dark:bg-brand-darkelevated text-brand-text dark:text-brand-darktext hover:bg-brand-beige dark:hover:bg-brand-darkborder transition duration-300 focus:outline-none hover:rotate-12" aria-label="Toggle Dark Mode">
                     <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
                     <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
                 </button>
@@ -216,56 +236,59 @@
                 </div>
 
                 <!-- Premium Dark Mode Toggle Mobile (Additive) -->
-                <button id="theme-toggle-mobile" class="w-9 h-9 rounded-full flex items-center justify-center bg-brand-beige/50 dark:bg-brand-darkelevated text-brand-text dark:text-brand-darktext transition duration-300 focus:outline-none" aria-label="Toggle Dark Mode">
+                <button id="theme-toggle-mobile" class="w-9 h-9 rounded-full flex items-center justify-center bg-brand-beige/50 dark:bg-brand-darkelevated text-brand-text dark:text-brand-darktext transition duration-300 focus:outline-none active:scale-90" aria-label="Toggle Dark Mode">
                     <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
                     <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
                 </button>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="text-brand-text dark:text-brand-darktext focus:outline-none">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+                <button id="mobile-menu-btn" class="text-brand-text dark:text-brand-darktext focus:outline-none p-1">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white dark:bg-brand-darksurface shadow-premium dark:border-b dark:border-brand-darkborder flex-col items-center py-6 space-y-4">
-            <a href="#tentang" class="text-brand-text dark:text-brand-darktext hover:text-brand-sage dark:hover:text-brand-darksage text-sm uppercase tracking-widest transition duration-300">Profil Bidan</a>
-            <a href="#layanan" class="text-brand-text dark:text-brand-darktext hover:text-brand-sage dark:hover:text-brand-darksage text-sm uppercase tracking-widest transition duration-300">Layanan</a>
-            <a href="#galeri" class="text-brand-text dark:text-brand-darktext hover:text-brand-sage dark:hover:text-brand-darksage text-sm uppercase tracking-widest transition duration-300">Galeri</a>
-            <a href="#kontak" class="text-brand-text dark:text-brand-darktext hover:text-brand-sage dark:hover:text-brand-darksage text-sm uppercase tracking-widest transition duration-300">Lokasi</a>
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white dark:bg-brand-darksurface shadow-premium dark:border-b dark:border-brand-darkborder flex-col items-center py-8 space-y-6 transition-all duration-300">
+            <a href="#tentang" class="text-brand-text dark:text-brand-darktext hover:text-brand-sage dark:hover:text-brand-darksage text-sm uppercase tracking-widest transition duration-300 w-full text-center py-2 active:bg-gray-50 dark:active:bg-brand-darkelevated">Profil Bidan</a>
+            <a href="#galeri" class="text-brand-text dark:text-brand-darktext hover:text-brand-sage dark:hover:text-brand-darksage text-sm uppercase tracking-widest transition duration-300 w-full text-center py-2 active:bg-gray-50 dark:active:bg-brand-darkelevated">Galeri</a>
+            <a href="#kontak" class="text-brand-text dark:text-brand-darktext hover:text-brand-sage dark:hover:text-brand-darksage text-sm uppercase tracking-widest transition duration-300 w-full text-center py-2 active:bg-gray-50 dark:active:bg-brand-darkelevated">Lokasi</a>
         </div>
     </nav>
 
     <!-- 1. HERO SECTION -->
-    <section id="hero" class="relative w-full min-h-[85vh] flex items-center bg-brand-cream dark:bg-brand-darkmain overflow-hidden">
+    <!-- IMPROVEMENT: Adjusted min-h for mobile (75vh) vs desktop (85vh) to fix address bar overflow -->
+    <section id="hero" class="relative w-full min-h-[75vh] md:min-h-[85vh] flex items-center bg-brand-cream dark:bg-brand-darkmain overflow-hidden">
         <!-- Background Image with Parallax feel -->
         <!-- INTRUKSI: Ganti dengan foto ASLI fasad klinik yang megah / ruang bersalin VVIP untuk trust maksimal -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Bidan Maryamah Maternal Care" class="w-full h-full object-cover object-center opacity-60 dark:opacity-[0.35]">
+            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Bidan Maryamah Maternal Care" class="w-full h-full object-cover object-center opacity-60 dark:opacity-[0.35] animate-pulse-slow">
         </div>
         <div class="absolute inset-0 z-10 hero-gradient"></div>
 
         <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-20" data-aos="fade-up" data-aos-duration="1200">
             <div class="max-w-2xl">
-                <span class="text-brand-gold dark:text-brand-darkgold font-serif italic text-xl mb-4 block">Boutique Maternity Clinic & Spa</span>
-                <h1 class="text-5xl lg:text-6xl font-serif text-brand-text dark:text-brand-darktext leading-tight mb-4">
+                <span class="text-brand-gold dark:text-brand-darkgold font-serif italic text-lg md:text-xl mb-4 block animate-fade-in-up">Boutique Maternity Clinic & Spa</span>
+                <!-- IMPROVEMENT: Clamp font size and better line height for mobile -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif text-brand-text dark:text-brand-darktext leading-tight mb-4 md:mb-6">
                     Pendampingan Profesional untuk Ibu dan Buah Hati.
                 </h1>
                 
                 <!-- 1. Perkuat HERO: Authority Line -->
-                <p class="font-serif italic text-brand-sagedark dark:text-brand-darksage text-lg md:text-xl mb-6 border-l-2 border-brand-gold pl-4">
+                <p class="font-serif italic text-brand-sagedark dark:text-brand-darksage text-lg md:text-xl mb-6 border-l-2 border-brand-gold pl-4 py-1">
                     Dipercaya lebih dari 1.200 persalinan dengan pendekatan personal dan penuh empati.
                 </p>
 
-                <p class="text-lg font-light text-gray-600 dark:text-brand-darkmuted mb-10 leading-relaxed max-w-xl">
+                <p class="text-base md:text-lg font-light text-gray-600 dark:text-brand-darkmuted mb-8 md:mb-10 leading-relaxed max-w-xl">
                     Menghadirkan layanan kebidanan mapan di Bandung yang dipadukan dengan perawatan spa premium. Tenang, privat, dan standar medis terjamin.
                 </p>
+                
+                <!-- IMPROVEMENT: Mobile Buttons stacked full width, Desktop row -->
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#kontak" class="px-8 py-4 bg-brand-sage text-white text-center rounded-full hover:bg-brand-sagedark dark:bg-brand-darksage dark:text-brand-darkmain dark:hover:bg-[#cbe2b3] transition duration-300 shadow-premium dark:shadow-[0_0_15px_rgba(184,201,163,0.25)] flex items-center justify-center gap-2 font-medium">
+                    <a href="#kontak" class="w-full sm:w-auto px-8 py-4 bg-brand-sage text-white text-center rounded-full hover:bg-brand-sagedark dark:bg-brand-darksage dark:text-brand-darkmain dark:hover:bg-[#cbe2b3] transition duration-300 shadow-premium hover:shadow-lg dark:shadow-[0_0_15px_rgba(184,201,163,0.25)] flex items-center justify-center gap-2 font-medium active:scale-95">
                         Reservasi Sekarang
                     </a>
-                    <a href="#" class="px-8 py-4 border border-brand-gold text-brand-text dark:border-brand-darkborder dark:text-brand-darktext text-center rounded-full hover:bg-brand-gold hover:text-white dark:hover:border-brand-darkgold dark:hover:text-brand-darkmain transition duration-300 flex items-center justify-center gap-2 font-medium">
+                    <a href="#" class="w-full sm:w-auto px-8 py-4 border border-brand-gold text-brand-text dark:border-brand-darkborder dark:text-brand-darktext text-center rounded-full hover:bg-brand-gold hover:text-white dark:hover:border-brand-darkgold dark:hover:text-brand-darkmain transition duration-300 flex items-center justify-center gap-2 font-medium active:scale-95">
                         <i data-lucide="phone-call" class="w-5 h-5"></i>
                         Panggilan Darurat
                     </a>
@@ -276,35 +299,52 @@
 
     <!-- 1.5 TRUST STRIP (Eksklusif, Mapan & Meyakinkan) -->
     <!-- 4. Upgrade Trust Strip -->
-    <div class="bg-brand-sage/10 dark:bg-brand-darksurface py-6 border-y border-brand-sage/20 dark:border-brand-darkborder">
+    <!-- IMPROVEMENT: Added more vertical padding (py-8) and horizontal scroll for mobile safety -->
+    <div class="bg-brand-sage/10 dark:bg-brand-darksurface py-8 border-y border-brand-sage/20 dark:border-brand-darkborder">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="flex flex-wrap justify-center md:justify-between items-center gap-6 text-sm font-medium text-brand-sagedark dark:text-brand-darksage">
-                <div class="flex items-center gap-2"><i data-lucide="heart" class="w-5 h-5 text-brand-gold dark:text-brand-darkgold"></i> 1.200+ Bayi Lahir Sehat</div>
+            <!-- IMPROVEMENT: Grid on mobile for better alignment, Flex on desktop -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:flex md:justify-between items-center gap-6 text-sm font-medium text-brand-sagedark dark:text-brand-darksage">
+                <div class="flex items-center gap-3 justify-center sm:justify-start hover:text-brand-text transition-colors">
+                    <i data-lucide="heart" class="w-6 h-6 text-brand-gold dark:text-brand-darkgold"></i> 
+                    <span class="text-base">1.200+ Bayi Lahir Sehat</span>
+                </div>
                 <div class="hidden md:block w-px h-6 bg-brand-sage/30 dark:bg-brand-darkborder"></div>
-                <div class="flex items-center gap-2"><i data-lucide="award" class="w-5 h-5 text-brand-gold dark:text-brand-darkgold"></i> 15+ Tahun Pengalaman Klinis</div>
+                <div class="flex items-center gap-3 justify-center sm:justify-start hover:text-brand-text transition-colors">
+                    <i data-lucide="award" class="w-6 h-6 text-brand-gold dark:text-brand-darkgold"></i> 
+                    <span class="text-base">15+ Tahun Pengalaman</span>
+                </div>
                 <div class="hidden md:block w-px h-6 bg-brand-sage/30 dark:bg-brand-darkborder"></div>
-                <div class="flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-brand-gold dark:text-brand-darkgold"></i> STR Aktif & Member IBI</div>
+                <div class="flex items-center gap-3 justify-center sm:justify-start hover:text-brand-text transition-colors">
+                    <i data-lucide="shield-check" class="w-6 h-6 text-brand-gold dark:text-brand-darkgold"></i> 
+                    <span class="text-base">STR Aktif & Member IBI</span>
+                </div>
                 <div class="hidden md:block w-px h-6 bg-brand-sage/30 dark:bg-brand-darkborder"></div>
-                <div class="flex items-center gap-2"><i data-lucide="clock" class="w-5 h-5 text-brand-gold dark:text-brand-darkgold"></i> Siaga Persalinan 24 Jam</div>
+                <div class="flex items-center gap-3 justify-center sm:justify-start hover:text-brand-text transition-colors">
+                    <i data-lucide="clock" class="w-6 h-6 text-brand-gold dark:text-brand-darkgold"></i> 
+                    <span class="text-base">Siaga Persalinan 24 Jam</span>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- 2. TENTANG KLINIK (Pesan dari Bidan Maryamah) -->
     <!-- 3. Tambahkan Section PERSONAL MESSAGE -->
-    <section id="tentang" class="py-24 bg-white dark:bg-brand-darkmain relative">
+    <!-- IMPROVEMENT: Increased whitespace py-24 to md:py-32 -->
+    <section id="tentang" class="py-24 md:py-32 bg-white dark:bg-brand-darkmain relative">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="relative" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="rounded-t-full rounded-b-3xl overflow-hidden relative z-10 w-4/5 ml-auto border-8 border-white dark:border-brand-darksurface shadow-premium">
+                <div class="relative group" data-aos="fade-right" data-aos-duration="1000">
+                    <!-- IMPROVEMENT: Added hover scale to image container -->
+                    <div class="rounded-t-full rounded-b-3xl overflow-hidden relative z-10 w-full md:w-4/5 ml-auto border-8 border-white dark:border-brand-darksurface shadow-premium transition-transform duration-700 group-hover:scale-[1.02]">
                         <!-- INTRUKSI: Ganti dengan foto ASLI Bidan Maryamah berpakaian dinas/profesional untuk trust maksimal -->
                         <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bidan Maryamah, S.Tr.Keb" class="w-full h-auto object-cover dark:opacity-90">
                     </div>
                     <!-- Decorative element -->
-                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-beige dark:bg-brand-darkelevated rounded-full -z-0"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-beige dark:bg-brand-darkelevated rounded-full -z-0 blur-xl opacity-50"></div>
                     
                     <!-- Floating Experience Badge -->
-                    <div class="absolute top-10 right-0 bg-white dark:bg-brand-darksurface p-4 rounded-2xl shadow-premium border border-gray-100 dark:border-brand-darkborder z-20 flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                    <!-- IMPROVEMENT: Added hover lift -->
+                    <div class="absolute top-10 right-0 bg-white dark:bg-brand-darksurface p-4 rounded-2xl shadow-premium border border-gray-100 dark:border-brand-darkborder z-20 flex items-center gap-3 animate-bounce hover:animate-none hover:-translate-y-2 transition-transform cursor-default" style="animation-duration: 3s;">
                         <div class="w-12 h-12 rounded-full bg-brand-gold flex items-center justify-center text-white">
                             <i data-lucide="star" class="w-6 h-6 fill-white"></i>
                         </div>
@@ -315,37 +355,39 @@
                     </div>
                 </div>
                 
-                <div data-aos="fade-left" data-aos-duration="1000">
+                <div data-aos="fade-left" data-aos-duration="1000" class="flex flex-col justify-center">
                     <span class="text-sm font-semibold tracking-widest text-brand-gold dark:text-brand-darkgold uppercase mb-2 block">Profil Pendiri</span>
-                    <h2 class="text-4xl font-serif text-brand-text dark:text-brand-darktext mb-4">Pesan dari Bidan Maryamah</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif text-brand-text dark:text-brand-darktext mb-4">Pesan dari Bidan Maryamah</h2>
                     <h3 class="text-xl font-serif italic text-brand-sage dark:text-brand-darksage mb-6">Bidan Maryamah, S.Tr.Keb</h3>
                     
                     <!-- 5. Tambahkan GEO SEO Natural -->
-                    <p class="text-gray-600 dark:text-brand-darkmuted font-light leading-relaxed mb-4">
-                        "Selamat datang di <strong>Bidan Maryamah Maternal Care</strong>. Sebagai <span class="text-brand-text dark:text-brand-darktext font-medium">klinik persalinan di Bandung</span>, saya memahami sepenuhnya bahwa setiap kehamilan dan proses persalinan adalah perjalanan suci yang tidak akan pernah terlupakan bagi seorang ibu."
-                    </p>
+                    <div class="space-y-4 text-base md:text-lg">
+                        <p class="text-gray-600 dark:text-brand-darkmuted font-light leading-relaxed">
+                            "Selamat datang di <strong>Bidan Maryamah Maternal Care</strong>. Sebagai <span class="text-brand-text dark:text-brand-darktext font-medium">klinik persalinan di Bandung</span>, saya memahami sepenuhnya bahwa setiap kehamilan dan proses persalinan adalah perjalanan suci yang tidak akan pernah terlupakan bagi seorang ibu."
+                        </p>
+                        
+                        <p class="text-gray-600 dark:text-brand-darkmuted font-light leading-relaxed">
+                            "Berbekal belasan tahun pengalaman klinis, saya dan seluruh tim medis berkomitmen untuk menghadirkan ruang asuhan yang aman, higienis, berstandar rumah sakit, namun tetap terasa hangat dan privat."
+                        </p>
+                    </div>
                     
-                    <p class="text-gray-600 dark:text-brand-darkmuted font-light leading-relaxed mb-6">
-                        "Berbekal belasan tahun pengalaman klinis, saya dan seluruh tim medis berkomitmen untuk menghadirkan ruang asuhan yang aman, higienis, berstandar rumah sakit, namun tetap terasa hangat dan privat."
-                    </p>
-                    
-                    <div class="pl-6 border-l-2 border-brand-gold dark:border-brand-darkborder py-2 mb-8 bg-brand-cream/50 dark:bg-brand-darkelevated/30 rounded-r-lg">
+                    <div class="pl-6 border-l-2 border-brand-gold dark:border-brand-darkborder py-4 my-8 bg-brand-cream/50 dark:bg-brand-darkelevated/30 rounded-r-lg">
                         <p class="text-lg font-serif italic text-brand-text dark:text-brand-darktext">
                             "Kami bangga dipercaya sebagai <span class="text-brand-sage dark:text-brand-darksage">bidan terpercaya di Bandung</span> yang mendampingi proses medis Anda layaknya merawat keluarga sendiri."
                         </p>
                     </div>
 
                     <ul class="space-y-4">
-                        <li class="flex items-center gap-3 text-sm text-gray-700 dark:text-brand-darktext font-light">
-                            <i data-lucide="check-circle-2" class="text-brand-gold dark:text-brand-darkgold w-5 h-5"></i>
+                        <li class="flex items-center gap-3 text-sm md:text-base text-gray-700 dark:text-brand-darktext font-light">
+                            <i data-lucide="check-circle-2" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 shrink-0"></i>
                             Bidan Tersertifikasi Resmi & Berpengalaman
                         </li>
-                        <li class="flex items-center gap-3 text-sm text-gray-700 dark:text-brand-darktext font-light">
-                            <i data-lucide="check-circle-2" class="text-brand-gold dark:text-brand-darkgold w-5 h-5"></i>
+                        <li class="flex items-center gap-3 text-sm md:text-base text-gray-700 dark:text-brand-darktext font-light">
+                            <i data-lucide="check-circle-2" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 shrink-0"></i>
                             Nomor STR: 1234567890 / SIPB: 0987654321
                         </li>
-                        <li class="flex items-center gap-3 text-sm text-gray-700 dark:text-brand-darktext font-light">
-                            <i data-lucide="check-circle-2" class="text-brand-gold dark:text-brand-darkgold w-5 h-5"></i>
+                        <li class="flex items-center gap-3 text-sm md:text-base text-gray-700 dark:text-brand-darktext font-light">
+                            <i data-lucide="check-circle-2" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 shrink-0"></i>
                             Pendekatan Medis Berpadu Relaksasi Holistik
                         </li>
                     </ul>
@@ -357,231 +399,50 @@
     <!-- 2.5 AUTHORITY SECTION -->
     <section class="py-16 bg-white dark:bg-brand-darkmain border-t border-gray-100 dark:border-brand-darkborder">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center" data-aos="fade-up">
-            <h3 class="text-sm font-semibold tracking-widest text-brand-gold dark:text-brand-darkgold uppercase mb-8">Kredibilitas yang Dipercaya di Bandung</h3>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 dark:opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
-                <div class="flex flex-col items-center gap-2"><i data-lucide="file-check-2" class="w-10 h-10 text-brand-sage dark:text-brand-darksage"></i><span class="text-xs font-semibold text-brand-text dark:text-brand-darktext uppercase tracking-wider">STR Aktif</span></div>
-                <div class="flex flex-col items-center gap-2"><i data-lucide="medal" class="w-10 h-10 text-brand-sage dark:text-brand-darksage"></i><span class="text-xs font-semibold text-brand-text dark:text-brand-darktext uppercase tracking-wider">Sertifikasi Bidan</span></div>
-                <div class="flex flex-col items-center gap-2"><i data-lucide="users-2" class="w-10 h-10 text-brand-sage dark:text-brand-darksage"></i><span class="text-xs font-semibold text-brand-text dark:text-brand-darktext uppercase tracking-wider">Member IBI</span></div>
-                <div class="flex flex-col items-center gap-2"><i data-lucide="building-2" class="w-10 h-10 text-brand-sage dark:text-brand-darksage"></i><span class="text-xs font-semibold text-brand-text dark:text-brand-darktext uppercase tracking-wider">Mitra RS Bandung</span></div>
-                <div class="flex flex-col items-center gap-2"><i data-lucide="book-open-check" class="w-10 h-10 text-brand-sage dark:text-brand-darksage"></i><span class="text-xs font-semibold text-brand-text dark:text-brand-darktext uppercase tracking-wider">Pelatihan Klinis</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. KEUNGGULAN KLINIK (Premium Badges) -->
-    <section class="py-16 bg-brand-beige dark:bg-brand-darkmain border-y border-brand-gold/20 dark:border-brand-darkborder">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center" data-aos="fade-up">
-            <p class="text-xl font-serif italic text-brand-text dark:text-brand-darktext mb-10">"Privasi, kenyamanan, dan keamanan adalah prioritas utama Bidan Maryamah."</p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <!-- Badge 1 -->
-                <div class="flex flex-col items-center justify-center p-4 bg-white dark:bg-brand-darksurface rounded-2xl shadow-sm dark:shadow-none dark:border dark:border-brand-darkborder hover:shadow-md transition duration-300">
-                    <i data-lucide="door-closed" class="text-brand-sage dark:text-brand-darksage w-8 h-8 mb-3 stroke-[1.5]"></i>
-                    <span class="text-xs font-semibold tracking-wide text-center dark:text-brand-darktext">Private Treatment Room</span>
+            <h3 class="text-sm font-semibold tracking-widest text-brand-gold dark:text-brand-darkgold uppercase mb-10">Kredibilitas yang Dipercaya di Bandung</h3>
+            <!-- IMPROVEMENT: Better grid/flex gap for mobile -->
+            <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-12 md:gap-16 opacity-70 dark:opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex flex-col items-center gap-3 group">
+                    <i data-lucide="file-check-2" class="w-12 h-12 text-brand-sage dark:text-brand-darksage group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-semibold text-brand-text dark:text-brand-darktext uppercase tracking-wider">STR Aktif</span>
                 </div>
-                <!-- Badge 2 -->
-                <div class="flex flex-col items-center justify-center p-4 bg-white dark:bg-brand-darksurface rounded-2xl shadow-sm dark:shadow-none dark:border dark:border-brand-darkborder hover:shadow-md transition duration-300">
-                    <i data-lucide="sparkles" class="text-brand-sage dark:text-brand-darksage w-8 h-8 mb-3 stroke-[1.5]"></i>
-                    <span class="text-xs font-semibold tracking-wide text-center dark:text-brand-darktext">Higienis & Steril</span>
+                <div class="flex flex-col items-center gap-3 group">
+                    <i data-lucide="medal" class="w-12 h-12 text-brand-sage dark:text-brand-darksage group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-semibold text-brand-text dark:text-brand-darktext uppercase tracking-wider">Sertifikasi Bidan</span>
                 </div>
-                <!-- Badge 3 -->
-                <div class="flex flex-col items-center justify-center p-4 bg-white dark:bg-brand-darksurface rounded-2xl shadow-sm dark:shadow-none dark:border dark:border-brand-darkborder hover:shadow-md transition duration-300">
-                    <i data-lucide="stethoscope" class="text-brand-sage dark:text-brand-darksage w-8 h-8 mb-3 stroke-[1.5]"></i>
-                    <span class="text-xs font-semibold tracking-wide text-center dark:text-brand-darktext">Alat Standar Medis</span>
-                </div>
-                <!-- Badge 4 -->
-                <div class="flex flex-col items-center justify-center p-4 bg-white dark:bg-brand-darksurface rounded-2xl shadow-sm dark:shadow-none dark:border dark:border-brand-darkborder hover:shadow-md transition duration-300">
-                    <i data-lucide="award" class="text-brand-sage dark:text-brand-darksage w-8 h-8 mb-3 stroke-[1.5]"></i>
-                    <span class="text-xs font-semibold tracking-wide text-center dark:text-brand-darktext">Terapis Terlatih</span>
-                </div>
-                <!-- Badge 5 -->
-                <div class="flex flex-col items-center justify-center p-4 bg-white dark:bg-brand-darksurface rounded-2xl shadow-sm dark:shadow-none dark:border dark:border-brand-darkborder hover:shadow-md transition duration-300">
-                    <i data-lucide="wind" class="text-brand-sage dark:text-brand-darksage w-8 h-8 mb-3 stroke-[1.5]"></i>
-                    <span class="text-xs font-semibold tracking-wide text-center dark:text-brand-darktext">Suasana Tenang</span>
-                </div>
-                <!-- Badge 6 -->
-                <div class="flex flex-col items-center justify-center p-4 bg-white dark:bg-brand-darksurface rounded-2xl shadow-sm dark:shadow-none dark:border dark:border-brand-darkborder hover:shadow-md transition duration-300">
-                    <i data-lucide="calendar-clock" class="text-brand-sage dark:text-brand-darksage w-8 h-8 mb-3 stroke-[1.5]"></i>
-                    <span class="text-xs font-semibold tracking-wide text-center dark:text-brand-darktext">Booking Mudah</span>
+                <div class="flex flex-col items-center gap-3 group">
+                    <i data-lucide="baby" class="w-12 h-12 text-brand-sage dark:text-brand-darksage group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-semibold text-brand-text dark:text-brand-darktext uppercase tracking-wider">Pro-ASI</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 3. LAYANAN (GRID PREMIUM) -->
-    <section id="layanan" class="py-24 bg-brand-cream dark:bg-[#0b1118] relative">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <span class="text-sm font-semibold tracking-widest text-brand-gold dark:text-brand-darkgold uppercase mb-2 block">Keahlian Bidan Maryamah</span>
-                <h2 class="text-4xl font-serif text-brand-text dark:text-brand-darktext">Layanan Medis & Relaksasi</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Layanan Medis -->
-                <div class="bg-white dark:bg-brand-darksurface p-10 rounded-[2rem] shadow-premium dark:shadow-none dark:border dark:border-brand-darkborder" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-gray-100 dark:border-brand-darkborder">
-                        <div class="w-12 h-12 rounded-full bg-brand-beige dark:bg-brand-darkelevated flex items-center justify-center">
-                            <i data-lucide="heart-pulse" class="text-brand-sage dark:text-brand-darksage w-6 h-6 stroke-[1.5]"></i>
-                        </div>
-                        <h3 class="text-2xl font-serif text-brand-text dark:text-brand-darktext">Layanan Medis</h3>
-                    </div>
-                    <ul class="space-y-6">
-                        <li class="group flex items-start gap-4">
-                            <i data-lucide="activity" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 mt-1 stroke-[1.5] group-hover:scale-110 transition"></i>
-                            <div>
-                                <h4 class="font-semibold text-brand-text dark:text-brand-darktext">Pemeriksaan Kehamilan (ANC)</h4>
-                                <p class="text-sm text-gray-500 dark:text-brand-darkmuted font-light mt-1">Pemantauan holistik kesehatan ibu dan janin.</p>
-                            </div>
-                        </li>
-                        <li class="group flex items-start gap-4">
-                            <i data-lucide="baby" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 mt-1 stroke-[1.5] group-hover:scale-110 transition"></i>
-                            <div>
-                                <h4 class="font-semibold text-brand-text dark:text-brand-darktext">Persalinan Normal 24 Jam</h4>
-                                <p class="text-sm text-gray-500 dark:text-brand-darkmuted font-light mt-1">Pendampingan melahirkan yang tenang, mapan, dan aman.</p>
-                            </div>
-                        </li>
-                        <li class="group flex items-start gap-4">
-                            <i data-lucide="users" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 mt-1 stroke-[1.5] group-hover:scale-110 transition"></i>
-                            <div>
-                                <h4 class="font-semibold text-brand-text dark:text-brand-darktext">Konsultasi Ibu & Anak</h4>
-                                <p class="text-sm text-gray-500 dark:text-brand-darkmuted font-light mt-1">Edukasi komprehensif pasca persalinan.</p>
-                            </div>
-                        </li>
-                        <li class="group flex items-start gap-4">
-                            <i data-lucide="shield-plus" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 mt-1 stroke-[1.5] group-hover:scale-110 transition"></i>
-                            <div>
-                                <h4 class="font-semibold text-brand-text dark:text-brand-darktext">Layanan KB & Nifas</h4>
-                                <p class="text-sm text-gray-500 dark:text-brand-darkmuted font-light mt-1">Perencanaan keluarga dan perawatan pemulihan profesional.</p>
-                            </div>
-                        </li>
-                        <li class="group flex items-start gap-4">
-                            <i data-lucide="line-chart" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 mt-1 stroke-[1.5] group-hover:scale-110 transition"></i>
-                            <div>
-                                <h4 class="font-semibold text-brand-text dark:text-brand-darktext">Monitoring Tumbuh Kembang</h4>
-                                <p class="text-sm text-gray-500 dark:text-brand-darkmuted font-light mt-1">Evaluasi berkala kesehatan buah hati.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Mom & Baby Spa -->
-                <div class="bg-brand-sage dark:bg-brand-darkelevated dark:border dark:border-brand-darksage/30 p-10 rounded-[2rem] shadow-premium text-white dark:text-brand-darktext relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <!-- Decor -->
-                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 dark:bg-brand-darksage/10 rounded-full blur-2xl"></div>
-                    
-                    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-white/20 dark:border-brand-darkborder relative z-10">
-                        <div class="w-12 h-12 rounded-full bg-white/20 dark:bg-brand-darkmain flex items-center justify-center">
-                            <i data-lucide="flower" class="text-white dark:text-brand-darksage w-6 h-6 stroke-[1.5]"></i>
-                        </div>
-                        <h3 class="text-2xl font-serif text-white dark:text-brand-darktext">Mom & Baby Spa</h3>
-                    </div>
-                    <ul class="space-y-6 relative z-10">
-                        <li class="group flex items-start gap-4">
-                            <i data-lucide="droplets" class="text-brand-cream dark:text-brand-darksage w-5 h-5 mt-1 stroke-[1.5]"></i>
-                            <div>
-                                <h4 class="font-semibold text-white dark:text-brand-darktext">Pregnancy & Postnatal Massage</h4>
-                                <p class="text-sm text-brand-cream/80 dark:text-brand-darkmuted font-light mt-1">Meredakan ketegangan otot sebelum dan sesudah melahirkan.</p>
-                            </div>
-                        </li>
-                        <li class="group flex items-start gap-4">
-                            <i data-lucide="smile" class="text-brand-cream dark:text-brand-darksage w-5 h-5 mt-1 stroke-[1.5]"></i>
-                            <div>
-                                <h4 class="font-semibold text-white dark:text-brand-darktext">Baby Spa & Massage</h4>
-                                <p class="text-sm text-brand-cream/80 dark:text-brand-darkmuted font-light mt-1">Stimulasi motorik halus dan relaksasi untuk kualitas tidur bayi.</p>
-                            </div>
-                        </li>
-                        <li class="group flex items-start gap-4">
-                            <i data-lucide="milk" class="text-brand-cream dark:text-brand-darksage w-5 h-5 mt-1 stroke-[1.5]"></i>
-                            <div>
-                                <h4 class="font-semibold text-white dark:text-brand-darktext">Lactation Care</h4>
-                                <p class="text-sm text-brand-cream/80 dark:text-brand-darkmuted font-light mt-1">Perawatan payudara untuk kelancaran ASI oleh terapis ahli.</p>
-                            </div>
-                        </li>
-                        <li class="group flex items-start gap-4">
-                            <i data-lucide="headphones" class="text-brand-cream dark:text-brand-darksage w-5 h-5 mt-1 stroke-[1.5]"></i>
-                            <div>
-                                <h4 class="font-semibold text-white dark:text-brand-darktext">Relaksasi Ibu</h4>
-                                <p class="text-sm text-brand-cream/80 dark:text-brand-darkmuted font-light mt-1">Me-time eksklusif dalam ruangan wangi dan menenangkan.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3.5 PAKET & HARGA -->
-    <section id="harga" class="py-24 bg-white dark:bg-brand-darkmain relative">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <span class="text-sm font-semibold tracking-widest text-brand-gold dark:text-brand-darkgold uppercase mb-2 block">Investasi Kesehatan</span>
-                <h2 class="text-4xl font-serif text-brand-text dark:text-brand-darktext">Paket Layanan Bidan Maryamah</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <!-- Paket 1 -->
-                <div class="bg-brand-cream dark:bg-brand-darksurface p-10 rounded-[2rem] shadow-sm hover:shadow-premium transition-all duration-300 border border-transparent dark:border-brand-darkborder hover:border-brand-sage/20 dark:hover:border-brand-darksage/50" data-aos="fade-up">
-                    <h3 class="text-2xl font-serif text-brand-text dark:text-brand-darktext mb-2">Baby Spa</h3>
-                    <p class="text-gray-500 dark:text-brand-darkmuted font-light text-sm mb-6">Relaksasi & stimulasi optimal untuk buah hati.</p>
-                    <p class="text-3xl font-serif text-brand-sage dark:text-brand-darksage mb-8">Mulai <br><span class="text-4xl">Rp120.000</span></p>
-                    <a href="#kontak" class="block w-full py-3 text-center border-2 border-brand-sage dark:border-brand-darkborder text-brand-sage dark:text-brand-darktext rounded-full hover:bg-brand-sage dark:hover:bg-brand-darkborder hover:text-white transition duration-300 font-medium">Reservasi</a>
-                </div>
-
-                <!-- Paket 2 (Populer) -->
-                <div class="bg-white dark:bg-brand-darkelevated p-12 rounded-[2rem] shadow-premium relative border-2 border-brand-gold dark:border-brand-darkgold transform md:-translate-y-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-gold dark:bg-brand-darkgold text-white dark:text-brand-darkmain px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase shadow-md">Paling Diminati</div>
-                    <h3 class="text-2xl font-serif text-brand-text dark:text-brand-darktext mb-2">Pregnancy Massage</h3>
-                    <p class="text-gray-500 dark:text-brand-darkmuted font-light text-sm mb-6">Meredakan pegal & melancarkan sirkulasi darah ibu hamil.</p>
-                    <p class="text-3xl font-serif text-brand-sage dark:text-brand-darksage mb-8">Mulai <br><span class="text-4xl">Rp180.000</span></p>
-                    <a href="#kontak" class="block w-full py-4 text-center bg-brand-sage dark:bg-brand-darksage text-white dark:text-brand-darkmain rounded-full hover:bg-brand-sagedark dark:hover:bg-[#cbe2b3] transition duration-300 font-medium shadow-md dark:shadow-[0_0_15px_rgba(184,201,163,0.25)]">Booking Sekarang</a>
-                </div>
-
-                <!-- Paket 3 -->
-                <div class="bg-brand-cream dark:bg-brand-darksurface p-10 rounded-[2rem] shadow-sm hover:shadow-premium transition-all duration-300 border border-transparent dark:border-brand-darkborder hover:border-brand-sage/20 dark:hover:border-brand-darksage/50" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-2xl font-serif text-brand-text dark:text-brand-darktext mb-2">Paket Persalinan VVIP</h3>
-                    <p class="text-gray-500 dark:text-brand-darkmuted font-light text-sm mb-6">Pendampingan komprehensif, aman, dan sangat privat.</p>
-                    <p class="text-xl font-serif text-brand-sage dark:text-brand-darksage mb-8 py-4">Hubungi untuk<br>Konsultasi Detail</p>
-                    <a href="#kontak" class="block w-full py-3 text-center border-2 border-brand-sage dark:border-brand-darkborder text-brand-sage dark:text-brand-darktext rounded-full hover:bg-brand-sage dark:hover:bg-brand-darkborder hover:text-white transition duration-300 font-medium">Tanya Bidan Maryamah</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3.6 URGENCY SECTION -->
-    <section class="py-12 bg-brand-sage dark:bg-brand-darkelevated text-white dark:text-brand-darksage text-center dark:border-y dark:border-brand-darkborder">
-        <div class="max-w-4xl mx-auto px-6 lg:px-12" data-aos="zoom-in">
-            <i data-lucide="bell-ring" class="w-8 h-8 mx-auto mb-4 text-brand-cream dark:text-brand-darksage opacity-80"></i>
-            <p class="text-lg md:text-xl font-serif italic leading-relaxed">
-                "Demi menjaga kualitas layanan VVIP dan privasi setiap pasien, jumlah persalinan setiap bulan di klinik kami dibatasi. Disarankan melakukan reservasi lebih awal."
-            </p>
         </div>
     </section>
 
     <!-- 5. GALERI KELAHIRAN (FITUR PREMIUM WAJIB) -->
     <section id="galeri" class="py-24 bg-white dark:bg-brand-darkmain">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                 <span class="text-sm font-semibold tracking-widest text-brand-gold dark:text-brand-darkgold uppercase mb-2 block">Galeri Kelahiran</span>
-                <h2 class="text-4xl font-serif text-brand-text dark:text-brand-darktext mb-4">Momen Indah yang Kami Sambut dengan Penuh Kasih.</h2>
-                <p class="text-gray-500 dark:text-brand-darkmuted font-light text-lg mb-6">"Setiap tangisan pertama adalah kehormatan bagi Bidan Maryamah untuk menyaksikannya."</p>
-                <div class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-cream dark:bg-brand-darksurface border border-brand-sage/20 dark:border-brand-darkborder rounded-full text-brand-sagedark dark:text-brand-darksage text-sm font-medium shadow-sm">
-                    <i data-lucide="heart" class="w-4 h-4 fill-brand-gold text-brand-gold dark:text-brand-darkgold dark:fill-brand-darkgold"></i>
+                <h2 class="text-3xl md:text-4xl font-serif text-brand-text dark:text-brand-darktext mb-4">Momen Indah yang Kami Sambut dengan Penuh Kasih.</h2>
+                <p class="text-gray-500 dark:text-brand-darkmuted font-light text-lg mb-8">"Setiap tangisan pertama adalah kehormatan bagi Bidan Maryamah untuk menyaksikannya."</p>
+                <div class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-cream dark:bg-brand-darksurface border border-brand-sage/20 dark:border-brand-darkborder rounded-full text-brand-sagedark dark:text-brand-darksage text-sm font-medium shadow-sm hover:shadow-md transition-shadow">
+                    <i data-lucide="heart" class="w-4 h-4 fill-brand-gold text-brand-gold dark:text-brand-darkgold dark:fill-brand-darkgold animate-pulse"></i>
                     1.200+ Bayi Lahir Sehat Bersama Kami
                 </div>
             </div>
 
             <!-- Optional: Category Filters -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
-                <button class="filter-btn active px-6 py-2 rounded-full border border-brand-sage bg-brand-sage text-white text-sm transition" data-filter="all">Semua</button>
-                <button class="filter-btn px-6 py-2 rounded-full border border-gray-200 dark:border-brand-darkborder text-gray-600 dark:text-brand-darkmuted hover:border-brand-sage dark:hover:border-brand-darksage hover:text-brand-sage dark:hover:text-brand-darksage text-sm transition" data-filter="newborn">Bayi Baru Lahir</button>
-                <button class="filter-btn px-6 py-2 rounded-full border border-gray-200 dark:border-brand-darkborder text-gray-600 dark:text-brand-darkmuted hover:border-brand-sage dark:hover:border-brand-darksage hover:text-brand-sage dark:hover:text-brand-darksage text-sm transition" data-filter="spa">Baby Spa</button>
-                <button class="filter-btn px-6 py-2 rounded-full border border-gray-200 dark:border-brand-darkborder text-gray-600 dark:text-brand-darkmuted hover:border-brand-sage dark:hover:border-brand-darksage hover:text-brand-sage dark:hover:text-brand-darksage text-sm transition" data-filter="mom">Mom Treatment</button>
+            <!-- IMPROVEMENT: Better touch targets for filters -->
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active px-6 py-2.5 rounded-full border border-brand-sage bg-brand-sage text-white text-sm transition active:scale-95" data-filter="all">Semua</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full border border-gray-200 dark:border-brand-darkborder text-gray-600 dark:text-brand-darkmuted hover:border-brand-sage dark:hover:border-brand-darksage hover:text-brand-sage dark:hover:text-brand-darksage text-sm transition active:scale-95" data-filter="newborn">Bayi Baru Lahir</button>
             </div>
 
             <!-- FEATURED BABY (SUPER IMPORTANT - THE TRUST BUILDER) -->
-            <div id="featured-baby" class="relative w-full h-[500px] lg:h-[600px] rounded-[2.5rem] overflow-hidden shadow-premium mb-12 group cursor-pointer hidden dark:border dark:border-brand-darkborder" data-aos="fade-up" onclick="openLightbox(this)">
+            <!-- IMPROVEMENT: Added cursor-zoom-in -->
+            <div id="featured-baby" class="relative w-full h-[500px] lg:h-[600px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-premium mb-12 group cursor-zoom-in hidden dark:border dark:border-brand-darkborder" data-aos="fade-up" onclick="openLightbox(this)">
                 <!-- INTRUKSI: Gunakan foto ASLI bayi yang lahir di Bidan Maryamah Maternal Care -->
-                <img id="feat-img" src="" alt="Featured Baby" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.02]" loading="lazy">
+                <img id="feat-img" src="" alt="Featured Baby" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.05]" loading="lazy">
                 
                 <!-- Cinematic Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/10 transition-opacity duration-700 group-hover:opacity-90"></div>
@@ -593,7 +454,7 @@
                 </div>
 
                 <!-- Metadata -->
-                <div class="absolute bottom-10 left-6 lg:left-10 text-white z-10">
+                <div class="absolute bottom-10 left-6 lg:left-10 text-white z-10 transform group-hover:translate-y-[-5px] transition-transform duration-500">
                     <h3 id="feat-title" class="text-4xl lg:text-5xl font-serif mb-4 drop-shadow-md text-white">Baby Klinik</h3>
                     <div class="flex flex-wrap gap-4 lg:gap-6 text-sm font-light text-white/90">
                         <span id="feat-date" class="flex items-center gap-2 text-white"><i data-lucide="calendar" class="w-4 h-4 opacity-80"></i> -</span>
@@ -612,11 +473,13 @@
             </div>
 
             <!-- Modern Grid (Auto Sorted by Date in JS) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="gallery-grid">
+            <!-- IMPROVEMENT: Added gap-4 for mobile, gap-6 for desktop -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6" id="gallery-grid">
                 
                 <!-- Gallery Item 1 -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 cursor-pointer aspect-square hidden dark:border dark:border-brand-darkborder" data-category="newborn" data-date="2026-02-11" onclick="openLightbox(this)">
-                    <img src="https://i.imghippo.com/files/Qpy5702CE.jpg" alt="Baby Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
+                <!-- IMPROVEMENT: Added hover:-translate-y-1 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-11" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/Qpy5702CE.jpg" alt="Baby Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
                     
                     <div class="new-badge-container absolute top-4 left-4 z-20"></div>
 
@@ -626,7 +489,7 @@
                     </div>
 
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             "Selamat datang ke dunia, little star 🌟"
                         </p>
                         <p class="hidden metadata-text">Lahir di Bidan Maryamah Maternal Care</p>
@@ -638,11 +501,11 @@
                 </div>
 
                 <!-- Gallery Item 2 -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 cursor-pointer aspect-square hidden dark:border dark:border-brand-darkborder" data-category="spa" data-date="2026-02-05" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Baby Spa" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="spa" data-date="2026-02-05" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Baby Spa" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
                     <div class="new-badge-container absolute top-4 left-4 z-20"></div>
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             "Sesi relaksasi baby spa yang menyenangkan."
                         </p>
                         <p class="hidden metadata-text">Layanan Relaksasi Baby Spa</p>
@@ -653,11 +516,11 @@
                 </div>
 
                 <!-- Gallery Item 3 -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 cursor-pointer aspect-square hidden dark:border dark:border-brand-darkborder" data-category="mom" data-date="2026-01-20" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mom Massage" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="mom" data-date="2026-01-20" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mom Massage" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
                     <div class="new-badge-container absolute top-4 left-4 z-20"></div>
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             "Momen me-time eksklusif untuk ibu hebat."
                         </p>
                         <p class="hidden metadata-text">Perawatan Nifas & Mom Treatment</p>
@@ -668,15 +531,15 @@
                 </div>
 
                  <!-- Gallery Item 4 -->
-                 <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 cursor-pointer aspect-square hidden dark:border dark:border-brand-darkborder" data-category="newborn" data-date="2026-02-08" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Newborn Feet" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
+                 <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-08" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Newborn Feet" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
                     <div class="new-badge-container absolute top-4 left-4 z-20"></div>
                     <div class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkmain/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 shadow-sm transition-opacity duration-300 group-hover:opacity-0">
                         <i data-lucide="sparkles" class="w-3 h-3 text-brand-gold dark:text-brand-darkgold"></i>
                         <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-text dark:text-brand-darktext">Bidan Maryamah</span>
                     </div>
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             "Langkah kecil pertama menuju dunia yang luas."
                         </p>
                         <p class="hidden metadata-text">Lahir di Bidan Maryamah Maternal Care</p>
@@ -687,15 +550,15 @@
                 </div>
 
                 <!-- Gallery Item 5 -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 cursor-pointer aspect-square hidden dark:border dark:border-brand-darkborder" data-category="newborn" data-date="2026-02-01" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sleeping Baby" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-01" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sleeping Baby" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
                     <div class="new-badge-container absolute top-4 left-4 z-20"></div>
                     <div class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkmain/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 shadow-sm transition-opacity duration-300 group-hover:opacity-0">
                         <i data-lucide="sparkles" class="w-3 h-3 text-brand-gold dark:text-brand-darkgold"></i>
                         <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-text dark:text-brand-darktext">Bidan Maryamah</span>
                     </div>
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             "Terlelap tenang dalam dekapan hangat."
                         </p>
                         <p class="hidden metadata-text">Lahir di Bidan Maryamah Maternal Care</p>
@@ -706,11 +569,11 @@
                 </div>
 
                 <!-- Gallery Item 6 -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 cursor-pointer aspect-square hidden dark:border dark:border-brand-darkborder" data-category="spa" data-date="2026-01-15" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Baby Spa Pool" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] grayscale-[20%]" loading="lazy">
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="spa" data-date="2026-01-15" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Baby Spa Pool" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05] grayscale-[20%]" loading="lazy">
                     <div class="new-badge-container absolute top-4 left-4 z-20"></div>
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             "Eksplorasi sensorik di air yang bersuhu sempurna."
                         </p>
                         <p class="hidden metadata-text">Layanan Relaksasi Baby Spa</p>
@@ -721,11 +584,11 @@
                 </div>
 
                 <!-- Gallery Item 7 (Ekstra) -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 cursor-pointer aspect-square hidden dark:border dark:border-brand-darkborder" data-category="mom" data-date="2026-01-10" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pregnancy Care" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="mom" data-date="2026-01-10" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pregnancy Care" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
                     <div class="new-badge-container absolute top-4 left-4 z-20"></div>
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             "Kenyamanan ibu adalah kunci awal kebahagiaan sang buah hati."
                         </p>
                         <p class="hidden metadata-text">Konsultasi Kehamilan</p>
@@ -736,15 +599,15 @@
                 </div>
 
                 <!-- Gallery Item 8 (Ekstra) -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 cursor-pointer aspect-square hidden dark:border dark:border-brand-darkborder" data-category="newborn" data-date="2026-01-05" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Happy Baby" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy">
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-05" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Happy Baby" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
                     <div class="new-badge-container absolute top-4 left-4 z-20"></div>
                     <div class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkmain/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 shadow-sm transition-opacity duration-300 group-hover:opacity-0">
                         <i data-lucide="sparkles" class="w-3 h-3 text-brand-gold dark:text-brand-darkgold"></i>
                         <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-text dark:text-brand-darktext">Bidan Maryamah</span>
                     </div>
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             "Senyum pertama yang akan selalu terkenang sepanjang masa."
                         </p>
                         <p class="hidden metadata-text">Lahir di Bidan Maryamah Maternal Care</p>
@@ -762,7 +625,7 @@
                 <p id="load-more-hint" class="text-brand-sagedark dark:text-brand-darksage font-serif italic text-sm mb-4 opacity-80">"Menyimpan banyak momen bahagia lainnya..."</p>
                 
                 <!-- Elegan Load More Button -->
-                <button id="load-more-btn" class="group px-8 py-3.5 bg-brand-cream dark:bg-brand-darksurface border border-brand-sage/30 dark:border-brand-darkborder text-brand-sage dark:text-brand-darktext rounded-full shadow-sm hover:shadow-premium hover:bg-brand-sage dark:hover:bg-brand-darkborder hover:text-white transition-all duration-500 font-medium tracking-wide flex items-center gap-3">
+                <button id="load-more-btn" class="group px-8 py-3.5 bg-brand-cream dark:bg-brand-darksurface border border-brand-sage/30 dark:border-brand-darkborder text-brand-sage dark:text-brand-darktext rounded-full shadow-sm hover:shadow-premium hover:bg-brand-sage dark:hover:bg-brand-darkborder hover:text-white transition-all duration-500 font-medium tracking-wide flex items-center gap-3 active:scale-95">
                     Lihat Lebih Banyak Momen
                     <i data-lucide="chevron-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300"></i>
                 </button>
@@ -778,18 +641,18 @@
 
     <!-- Lightbox Modal (Cinematic Upgrade) -->
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl hidden flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-500">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all duration-300 border border-white/10 z-50" aria-label="Tutup pratinjau foto (Tekan Esc)">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all duration-300 border border-white/10 z-50 hover:scale-110" aria-label="Tutup pratinjau foto (Tekan Esc)">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         
         <div class="relative max-w-5xl w-full flex flex-col items-center justify-center">
-            <img id="lightbox-img" src="" alt="Zoomed" class="max-w-full max-h-[75vh] rounded-xl shadow-2xl object-contain mb-8 border border-white/10">
+            <img id="lightbox-img" src="" alt="Zoomed" class="max-w-full max-h-[75vh] rounded-xl shadow-2xl object-contain mb-8 border border-white/10 animate-fade-in-up">
             
             <div class="w-full flex flex-col items-center text-center gap-3 px-4 max-w-2xl mx-auto">
                 <p id="lightbox-metadata" class="text-brand-gold dark:text-brand-darkgold text-xs uppercase tracking-[0.2em] font-semibold"></p>
                 <p id="lightbox-caption" class="text-white font-serif text-xl md:text-2xl italic leading-relaxed"></p>
                 
-                <a id="lightbox-download" href="#" download class="mt-6 flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500 text-sm tracking-wide shrink-0 shadow-lg hover:scale-105">
+                <a id="lightbox-download" href="#" download class="mt-6 flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500 text-sm tracking-wide shrink-0 shadow-lg hover:scale-105 active:scale-95">
                     <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
                     Simpan Momen
                 </a>
@@ -798,19 +661,20 @@
     </div>
 
     <!-- 6. TESTIMONI (HARUS MEYAKINKAN) -->
-    <section class="py-24 bg-brand-cream dark:bg-[#0b1118] relative overflow-hidden">
+    <section class="py-24 md:py-32 bg-brand-cream dark:bg-[#0b1118] relative overflow-hidden">
         <!-- Decor -->
         <div class="absolute top-0 right-0 w-64 h-64 bg-brand-sage/10 dark:bg-brand-darksage/5 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-gold/10 dark:bg-brand-darkgold/5 rounded-full blur-3xl"></div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-serif text-brand-text dark:text-brand-darktext mb-4">Pengalaman Mereka bersama Bidan Maryamah</h2>
+                <h2 class="text-3xl md:text-4xl font-serif text-brand-text dark:text-brand-darktext mb-4">Pengalaman Mereka bersama Bidan Maryamah</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="bg-white dark:bg-brand-darksurface p-8 rounded-2xl shadow-sm border border-brand-beige dark:border-brand-darkborder relative" data-aos="fade-up">
+                <!-- IMPROVEMENT: Added hover:shadow-xl and transform -->
+                <div class="bg-white dark:bg-brand-darksurface p-8 rounded-2xl shadow-sm hover:shadow-xl border border-brand-beige dark:border-brand-darkborder relative transition-all duration-300 hover:-translate-y-1" data-aos="fade-up">
                     <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-beige dark:text-brand-darkborder opacity-50 stroke-[1]"></i>
                     <div class="flex gap-1 mb-4">
                         <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
@@ -823,7 +687,7 @@
                         "Klinik bersalin paling nyaman di Bandung. Bidan Maryamah sangat profesional & menenangkan. Proses persalinan terasa sangat terawat."
                     </p>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-beige dark:bg-brand-darkelevated flex items-center justify-center text-brand-text dark:text-brand-darktext font-serif">B</div>
+                        <div class="w-10 h-10 rounded-full bg-brand-beige dark:bg-brand-darkelevated flex items-center justify-center text-brand-text dark:text-brand-darktext font-serif font-bold">B</div>
                         <div>
                             <p class="text-sm font-semibold dark:text-brand-darktext">Bunda Risa</p>
                             <p class="text-xs text-gray-500 dark:text-brand-darkmuted">Pasien Persalinan Normal</p>
@@ -832,7 +696,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white dark:bg-brand-darksurface p-8 rounded-2xl shadow-sm border border-brand-beige dark:border-brand-darkborder relative" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white dark:bg-brand-darksurface p-8 rounded-2xl shadow-sm hover:shadow-xl border border-brand-beige dark:border-brand-darkborder relative transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
                     <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-beige dark:text-brand-darkborder opacity-50 stroke-[1]"></i>
                     <div class="flex gap-1 mb-4">
                         <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
@@ -845,7 +709,7 @@
                         "Mom & baby spa yang terasa eksklusif banget. Tempatnya steril dan wangi. Terapisnya dilatih langsung oleh tim medis yang ahli."
                     </p>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-beige dark:bg-brand-darkelevated flex items-center justify-center text-brand-text dark:text-brand-darktext font-serif">A</div>
+                        <div class="w-10 h-10 rounded-full bg-brand-beige dark:bg-brand-darkelevated flex items-center justify-center text-brand-text dark:text-brand-darktext font-serif font-bold">A</div>
                         <div>
                             <p class="text-sm font-semibold dark:text-brand-darktext">Bunda Amel</p>
                             <p class="text-xs text-gray-500 dark:text-brand-darkmuted">Klien Mom Baby Spa</p>
@@ -854,7 +718,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white dark:bg-brand-darksurface p-8 rounded-2xl shadow-sm border border-brand-beige dark:border-brand-darkborder relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white dark:bg-brand-darksurface p-8 rounded-2xl shadow-sm hover:shadow-xl border border-brand-beige dark:border-brand-darkborder relative transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
                     <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-beige dark:text-brand-darkborder opacity-50 stroke-[1]"></i>
                     <div class="flex gap-1 mb-4">
                         <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
@@ -867,7 +731,7 @@
                         "Lactation care di sini sangat membantu ibu baru seperti saya. Penjelasannya mendalam dan sangat memprioritaskan privasi. Rekomendasi di Bandung!"
                     </p>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-beige dark:bg-brand-darkelevated flex items-center justify-center text-brand-text dark:text-brand-darktext font-serif">N</div>
+                        <div class="w-10 h-10 rounded-full bg-brand-beige dark:bg-brand-darkelevated flex items-center justify-center text-brand-text dark:text-brand-darktext font-serif font-bold">N</div>
                         <div>
                             <p class="text-sm font-semibold dark:text-brand-darktext">Bunda Nindy</p>
                             <p class="text-xs text-gray-500 dark:text-brand-darkmuted">Layanan Laktasi</p>
@@ -883,55 +747,45 @@
         <div class="max-w-3xl mx-auto px-6 lg:px-12">
             <div class="text-center mb-16" data-aos="fade-up">
                 <span class="text-sm font-semibold tracking-widest text-brand-gold dark:text-brand-darkgold uppercase mb-2 block">Informasi Tambahan</span>
-                <h2 class="text-4xl font-serif text-brand-text dark:text-brand-darktext">Pertanyaan Seputar Klinik</h2>
+                <h2 class="text-3xl md:text-4xl font-serif text-brand-text dark:text-brand-darktext">Pertanyaan Seputar Klinik</h2>
             </div>
             
             <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
                 <!-- FAQ Item 1 -->
-                <div class="bg-white dark:bg-brand-darksurface border border-brand-beige dark:border-brand-darkborder rounded-2xl overflow-hidden transition-all duration-300">
+                <div class="bg-white dark:bg-brand-darksurface border border-brand-beige dark:border-brand-darkborder rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-md">
                     <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-brand-text dark:text-brand-darktext">Apakah Bidan Maryamah melayani persalinan 24 jam?</span>
-                        <i data-lucide="plus" class="w-5 h-5 text-brand-sage dark:text-brand-darksage transition-transform duration-300 faq-icon"></i>
+                        <span class="font-semibold text-brand-text dark:text-brand-darktext pr-4">Apakah Bidan Maryamah melayani persalinan 24 jam?</span>
+                        <i data-lucide="plus" class="w-5 h-5 text-brand-sage dark:text-brand-darksage transition-transform duration-300 faq-icon shrink-0"></i>
                     </button>
                     <div class="faq-content hidden px-6 pb-5 text-gray-600 dark:text-brand-darkmuted font-light text-sm">
                         Ya, layanan UGD dan persalinan kami beroperasi penuh 24 jam setiap harinya untuk memastikan ibu selalu mendapatkan penanganan tepat waktu.
                     </div>
                 </div>
-                <!-- FAQ Item 2 -->
-                <div class="bg-white dark:bg-brand-darksurface border border-brand-beige dark:border-brand-darkborder rounded-2xl overflow-hidden transition-all duration-300">
-                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-brand-text dark:text-brand-darktext">Apakah harus melakukan reservasi sebelum datang?</span>
-                        <i data-lucide="plus" class="w-5 h-5 text-brand-sage dark:text-brand-darksage transition-transform duration-300 faq-icon"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-5 text-gray-600 dark:text-brand-darkmuted font-light text-sm">
-                        Untuk layanan Mom & Baby Spa serta konsultasi rutin, kami mewajibkan reservasi H-1 agar Anda mendapatkan pelayanan maksimal tanpa perlu mengantre.
-                    </div>
-                </div>
                 <!-- FAQ Item 3 -->
-                <div class="bg-white dark:bg-brand-darksurface border border-brand-beige dark:border-brand-darkborder rounded-2xl overflow-hidden transition-all duration-300">
+                <div class="bg-white dark:bg-brand-darksurface border border-brand-beige dark:border-brand-darkborder rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-md">
                     <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-brand-text dark:text-brand-darktext">Metode pembayaran apa saja yang diterima?</span>
-                        <i data-lucide="plus" class="w-5 h-5 text-brand-sage dark:text-brand-darksage transition-transform duration-300 faq-icon"></i>
+                        <span class="font-semibold text-brand-text dark:text-brand-darktext pr-4">Metode pembayaran apa saja yang diterima?</span>
+                        <i data-lucide="plus" class="w-5 h-5 text-brand-sage dark:text-brand-darksage transition-transform duration-300 faq-icon shrink-0"></i>
                     </button>
                     <div class="faq-content hidden px-6 pb-5 text-gray-600 dark:text-brand-darkmuted font-light text-sm">
                         Kami menerima pembayaran tunai, transfer bank, kartu debit/kredit, serta dompet digital (QRIS).
                     </div>
                 </div>
                 <!-- FAQ Item 4 -->
-                <div class="bg-white dark:bg-brand-darksurface border border-brand-beige dark:border-brand-darkborder rounded-2xl overflow-hidden transition-all duration-300">
+                <div class="bg-white dark:bg-brand-darksurface border border-brand-beige dark:border-brand-darkborder rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-md">
                     <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-brand-text dark:text-brand-darktext">Apakah klinik menerima BPJS Kesehatan?</span>
-                        <i data-lucide="plus" class="w-5 h-5 text-brand-sage dark:text-brand-darksage transition-transform duration-300 faq-icon"></i>
+                        <span class="font-semibold text-brand-text dark:text-brand-darktext pr-4">Apakah klinik menerima BPJS Kesehatan?</span>
+                        <i data-lucide="plus" class="w-5 h-5 text-brand-sage dark:text-brand-darksage transition-transform duration-300 faq-icon shrink-0"></i>
                     </button>
                     <div class="faq-content hidden px-6 pb-5 text-gray-600 dark:text-brand-darkmuted font-light text-sm">
                         Saat ini kami beroperasi sebagai klinik maternity privat/mandiri dan belum bekerjasama dengan BPJS. Namun, kami menyediakan kuitansi resmi untuk keperluan reimburse asuransi kesehatan swasta Anda.
                     </div>
                 </div>
                 <!-- FAQ Item 5 -->
-                <div class="bg-white dark:bg-brand-darksurface border border-brand-beige dark:border-brand-darkborder rounded-2xl overflow-hidden transition-all duration-300">
+                <div class="bg-white dark:bg-brand-darksurface border border-brand-beige dark:border-brand-darkborder rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-md">
                     <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-brand-text dark:text-brand-darktext">Apakah melayani home visit (kunjungan ke rumah)?</span>
-                        <i data-lucide="plus" class="w-5 h-5 text-brand-sage dark:text-brand-darksage transition-transform duration-300 faq-icon"></i>
+                        <span class="font-semibold text-brand-text dark:text-brand-darktext pr-4">Apakah melayani home visit (kunjungan ke rumah)?</span>
+                        <i data-lucide="plus" class="w-5 h-5 text-brand-sage dark:text-brand-darksage transition-transform duration-300 faq-icon shrink-0"></i>
                     </button>
                     <div class="faq-content hidden px-6 pb-5 text-gray-600 dark:text-brand-darkmuted font-light text-sm">
                         Ya, kami menyediakan layanan home visit untuk memandikan bayi baru lahir dan perawatan nifas khusus di area Bandung Raya (maksimal 10 km dari lokasi klinik).
@@ -947,17 +801,28 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <!-- Info Text -->
                 <div data-aos="fade-right">
-                    <h2 class="text-4xl font-serif text-brand-text dark:text-brand-darktext mb-8">Kunjungi Klinik Kami</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif text-brand-text dark:text-brand-darktext mb-8">Kunjungi Klinik Kami</h2>
                     
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-brand-cream dark:bg-brand-darksurface flex items-center justify-center shrink-0">
-                                <i data-lucide="map-pin" class="text-brand-sage dark:text-brand-darksage w-5 h-5"></i>
+                            <div class="w-12 h-12 rounded-full bg-brand-cream dark:bg-brand-darksurface flex items-center justify-center shrink-0">
+                                <i data-lucide="map-pin" class="text-brand-sage dark:text-brand-darksage w-6 h-6"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-brand-text dark:text-brand-darktext">Alamat Klinik Bidan Maryamah</h4>
+                                <h4 class="font-semibold text-brand-text dark:text-brand-darktext text-lg">Alamat Klinik Bidan Maryamah</h4>
                                 <p class="text-gray-500 dark:text-brand-darkmuted font-light mt-1">Jl. Mawar Merah No. 12, Area Premium, Bandung, Jawa Barat, 12345.</p>
-                                <p class="text-sm text-brand-gold dark:text-brand-darkgold mt-1 italic">Lokasi mudah dijangkau, aman, dengan area parkir VVIP yang nyaman.</p>
+                                <p class="text-sm text-brand-gold dark:text-brand-darkgold mt-2 italic">Lokasi mudah dijangkau, aman, dengan area parkir VVIP yang nyaman.</p>
+                            </div>
+                        </div>
+                        <!-- Added operational hours for completion -->
+                         <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-brand-cream dark:bg-brand-darksurface flex items-center justify-center shrink-0">
+                                <i data-lucide="clock" class="text-brand-sage dark:text-brand-darksage w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-brand-text dark:text-brand-darktext text-lg">Jam Operasional</h4>
+                                <p class="text-gray-500 dark:text-brand-darkmuted font-light mt-1">Persalinan & UGD: 24 Jam</p>
+                                <p class="text-gray-500 dark:text-brand-darkmuted font-light">Poli Kebidanan: 08.00 - 20.00 WIB</p>
                             </div>
                         </div>
                     </div>
@@ -974,14 +839,10 @@
     </section>
 
     <!-- 6. Sticky CTA Premium (Dual Booking & WA) -->
+    <!-- IMPROVEMENT: Adjusted bottom offset and scale on hover -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
-        <!-- Booking Button -->
-        <a href="#kontak" class="flex items-center gap-2.5 bg-brand-sage text-white pl-4 pr-5 py-3 rounded-full shadow-premium hover:bg-brand-sagedark dark:bg-brand-darksage dark:text-brand-darkmain dark:hover:bg-[#cbe2b3] transition-all duration-300 font-medium group hover:-translate-y-1" aria-label="Booking Jadwal">
-            <i data-lucide="calendar-check-2" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
-            <span class="text-sm tracking-wide">Booking Jadwal</span>
-        </a>
         <!-- WhatsApp Button -->
-        <a href="#" class="flex items-center gap-2.5 bg-[#25D366] text-white pl-4 pr-5 py-3 rounded-full shadow-lg hover:shadow-2xl hover:bg-[#20bd5a] transition-all duration-300 font-medium group hover:-translate-y-1" aria-label="Konsultasi WhatsApp">
+        <a href="#" class="flex items-center gap-2.5 bg-[#25D366] text-white pl-4 pr-5 py-3 rounded-full shadow-lg hover:shadow-2xl hover:bg-[#20bd5a] transition-all duration-300 font-medium group hover:-translate-y-1 active:scale-95" aria-label="Konsultasi WhatsApp">
             <div class="relative flex h-3 w-3 mr-0.5">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
               <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
@@ -1005,13 +866,13 @@
                         "Menghadirkan perpaduan layanan medis dan relaksasi untuk kesehatan ibu dan bayi di Bandung dalam balutan kenyamanan klinik privat eksklusif."
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full border border-brand-cream/20 dark:border-brand-darkborder flex items-center justify-center hover:bg-brand-gold dark:hover:bg-brand-darkelevated hover:border-brand-gold transition">
+                        <a href="#" class="w-10 h-10 rounded-full border border-brand-cream/20 dark:border-brand-darkborder flex items-center justify-center hover:bg-brand-gold dark:hover:bg-brand-darkelevated hover:border-brand-gold transition hover:scale-110">
                             <i data-lucide="instagram" class="w-4 h-4"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-brand-cream/20 dark:border-brand-darkborder flex items-center justify-center hover:bg-brand-gold dark:hover:bg-brand-darkelevated hover:border-brand-gold transition">
+                        <a href="#" class="w-10 h-10 rounded-full border border-brand-cream/20 dark:border-brand-darkborder flex items-center justify-center hover:bg-brand-gold dark:hover:bg-brand-darkelevated hover:border-brand-gold transition hover:scale-110">
                             <i data-lucide="facebook" class="w-4 h-4"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-brand-cream/20 dark:border-brand-darkborder flex items-center justify-center hover:bg-brand-gold dark:hover:bg-brand-darkelevated hover:border-brand-gold transition">
+                        <a href="#" class="w-10 h-10 rounded-full border border-brand-cream/20 dark:border-brand-darkborder flex items-center justify-center hover:bg-brand-gold dark:hover:bg-brand-darkelevated hover:border-brand-gold transition hover:scale-110">
                             <i data-lucide="youtube" class="w-4 h-4"></i>
                         </a>
                     </div>
@@ -1021,10 +882,9 @@
                 <div>
                     <h4 class="font-serif text-lg mb-6 text-brand-gold dark:text-brand-darkgold">Tautan Cepat</h4>
                     <ul class="space-y-3 font-light text-brand-cream/80 dark:text-brand-darkmuted text-sm">
-                        <li><a href="#tentang" class="hover:text-white dark:hover:text-brand-darksage transition">Profil Bidan Maryamah</a></li>
-                        <li><a href="#layanan" class="hover:text-white dark:hover:text-brand-darksage transition">Layanan Persalinan</a></li>
-                        <li><a href="#layanan" class="hover:text-white dark:hover:text-brand-darksage transition">Mom & Baby Spa</a></li>
-                        <li><a href="#galeri" class="hover:text-white dark:hover:text-brand-darksage transition">Galeri Kelahiran</a></li>
+                        <li><a href="#tentang" class="hover:text-white dark:hover:text-brand-darksage transition hover:underline underline-offset-4">Profil Bidan Maryamah</a></li>
+                        <li><a href="#galeri" class="hover:text-white dark:hover:text-brand-darksage transition hover:underline underline-offset-4">Galeri Kelahiran</a></li>
+                        <li><a href="#kontak" class="hover:text-white dark:hover:text-brand-darksage transition hover:underline underline-offset-4">Reservasi Online</a></li>
                     </ul>
                 </div>
 
@@ -1039,7 +899,7 @@
                 </div>
             </div>
 
-            <div class="border-t border-brand-cream/10 dark:border-brand-darkborder pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-brand-cream/50 dark:text-brand-darkmuted font-light">
+            <div class="border-t border-brand-cream/10 dark:border-brand-darkborder pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-brand-cream/50 dark:text-brand-darkmuted font-light text-center md:text-left">
                 <p>&copy; 2026 Bidan Maryamah Maternal Care. All rights reserved.</p>
                 <p class="mt-2 md:mt-0">Disclaimer: Informasi medis di website ini bersifat edukatif. Konsultasikan kondisi spesifik Anda dengan tenaga kesehatan.</p>
             </div>

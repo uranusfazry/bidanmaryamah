@@ -826,80 +826,102 @@
     </div>
 
     <!-- 6. TESTIMONI (HARUS MEYAKINKAN) -->
-    <section class="py-24 md:py-32 bg-brand-cream dark:bg-[#0b1118] relative overflow-hidden">
-        <!-- Decor -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-sage/10 dark:bg-brand-darksage/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-gold/10 dark:bg-brand-darkgold/5 rounded-full blur-3xl"></div>
+    <section class="py-32 bg-gradient-to-b from-brand-cream via-white to-brand-cream dark:from-[#0b1118] dark:via-[#111827] dark:to-[#0b1118] relative overflow-hidden">
+        <!-- Decor: Lebih subtle & blurred -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-sage/5 dark:bg-brand-darksage/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-gold/5 dark:bg-brand-darkgold/5 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-serif text-brand-text dark:text-brand-darktext mb-4">Pengalaman Mereka bersama Bidan Maryamah</h2>
+            <div class="text-center mb-20" data-aos="fade-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-brand-gold dark:text-brand-darkgold uppercase mb-3 block">Suara Kepercayaan</span>
+                <h2 class="text-3xl md:text-5xl font-serif text-brand-text dark:text-brand-darktext mb-6">Pengalaman Ibu & Buah Hati</h2>
+                <!-- Gold Accent Separator -->
+                <div class="h-0.5 w-16 bg-brand-gold mx-auto rounded-full opacity-60"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
                 <!-- Card 1 -->
-                <!-- IMPROVEMENT: Added hover:shadow-xl and transform -->
-                <div class="bg-white dark:bg-brand-darksurface p-8 rounded-2xl shadow-sm hover:shadow-xl border border-brand-beige dark:border-brand-darkborder relative transition-all duration-300 hover:-translate-y-1" data-aos="fade-up">
-                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-beige dark:text-brand-darkborder opacity-50 stroke-[1]"></i>
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
+                <div class="bg-white dark:bg-brand-darksurface p-10 rounded-xl shadow-[0_2px_40px_-10px_rgba(0,0,0,0.04)] border border-brand-sage/10 dark:border-brand-darkborder relative transition-colors duration-500 hover:border-brand-gold/30 group flex flex-col" data-aos="fade-up">
+                    <!-- Quote Icon: Subtle -->
+                    <i data-lucide="quote" class="absolute top-8 right-8 w-6 h-6 text-brand-sage/20 dark:text-brand-darkborder group-hover:text-brand-gold/20 transition-colors duration-500"></i>
+                    
+                    <!-- Stars: Soft Metallic Gold & Smaller -->
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
                     </div>
-                    <p class="text-gray-600 dark:text-brand-darkmuted font-light leading-relaxed mb-6 italic">
-                        "Tempat bersalin paling nyaman. Bidan Maryamah sangat profesional & menenangkan. Proses persalinan terasa sangat terawat."
+
+                    <!-- Content: Clean Sans, No Italic, High Line Height -->
+                    <p class="text-gray-600 dark:text-gray-300 font-sans font-light leading-relaxed mb-8 text-[15px] flex-grow">
+                        "Tempat bersalin paling nyaman. Bidan Maryamah sangat profesional & menenangkan. Proses persalinan terasa sangat terawat dan privat."
                     </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-beige dark:bg-brand-darkelevated flex items-center justify-center text-brand-text dark:text-brand-darktext font-serif font-bold">B</div>
+
+                    <!-- Separator -->
+                    <div class="w-8 h-px bg-brand-sage/20 dark:bg-brand-darkborder mb-6"></div>
+
+                    <!-- Identity -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-cream dark:bg-brand-darkelevated flex items-center justify-center text-brand-sagedark dark:text-brand-darksage font-serif font-bold text-lg border border-brand-sage/10">R</div>
                         <div>
-                            <p class="text-sm font-semibold dark:text-brand-darktext">Bunda Risa</p>
-                            <p class="text-xs text-gray-500 dark:text-brand-darkmuted">Pasien Persalinan Normal</p>
+                            <p class="text-sm font-serif font-semibold text-brand-text dark:text-brand-darktext">Bunda Risa</p>
+                            <p class="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-0.5">Persalinan Normal</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-white dark:bg-brand-darksurface p-8 rounded-2xl shadow-sm hover:shadow-xl border border-brand-beige dark:border-brand-darkborder relative transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
-                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-beige dark:text-brand-darkborder opacity-50 stroke-[1]"></i>
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
+                <div class="bg-white dark:bg-brand-darksurface p-10 rounded-xl shadow-[0_2px_40px_-10px_rgba(0,0,0,0.04)] border border-brand-sage/10 dark:border-brand-darkborder relative transition-colors duration-500 hover:border-brand-gold/30 group flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <i data-lucide="quote" class="absolute top-8 right-8 w-6 h-6 text-brand-sage/20 dark:text-brand-darkborder group-hover:text-brand-gold/20 transition-colors duration-500"></i>
+                    
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
                     </div>
-                    <p class="text-gray-600 dark:text-brand-darkmuted font-light leading-relaxed mb-6 italic">
-                        "Pelayanan nifas dan bayi yang sangat eksklusif. Tempatnya steril dan bersih. Bidan pelaksana sangat kompeten dan ramah."
+
+                    <p class="text-gray-600 dark:text-gray-300 font-sans font-light leading-relaxed mb-8 text-[15px] flex-grow">
+                        "Pelayanan nifas dan bayi yang sangat eksklusif. Tempatnya steril dan bersih. Bidan pelaksana sangat kompeten, ramah, dan telaten."
                     </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-beige dark:bg-brand-darkelevated flex items-center justify-center text-brand-text dark:text-brand-darktext font-serif font-bold">A</div>
+
+                    <div class="w-8 h-px bg-brand-sage/20 dark:bg-brand-darkborder mb-6"></div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-cream dark:bg-brand-darkelevated flex items-center justify-center text-brand-sagedark dark:text-brand-darksage font-serif font-bold text-lg border border-brand-sage/10">A</div>
                         <div>
-                            <p class="text-sm font-semibold dark:text-brand-darktext">Bunda Amel</p>
-                            <p class="text-xs text-gray-500 dark:text-brand-darkmuted">Klien Perawatan Ibu & Bayi</p>
+                            <p class="text-sm font-serif font-semibold text-brand-text dark:text-brand-darktext">Bunda Amel</p>
+                            <p class="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-0.5">Perawatan Ibu & Bayi</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-white dark:bg-brand-darksurface p-8 rounded-2xl shadow-sm hover:shadow-xl border border-brand-beige dark:border-brand-darkborder relative transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
-                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-brand-beige dark:text-brand-darkborder opacity-50 stroke-[1]"></i>
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-gold dark:text-brand-darkgold fill-brand-gold dark:fill-brand-darkgold"></i>
+                <div class="bg-white dark:bg-brand-darksurface p-10 rounded-xl shadow-[0_2px_40px_-10px_rgba(0,0,0,0.04)] border border-brand-sage/10 dark:border-brand-darkborder relative transition-colors duration-500 hover:border-brand-gold/30 group flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <i data-lucide="quote" class="absolute top-8 right-8 w-6 h-6 text-brand-sage/20 dark:text-brand-darkborder group-hover:text-brand-gold/20 transition-colors duration-500"></i>
+                    
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 text-[#D4AF37] fill-[#D4AF37]"></i>
                     </div>
-                    <p class="text-gray-600 dark:text-brand-darkmuted font-light leading-relaxed mb-6 italic">
-                        "Lactation care di sini sangat membantu ibu baru seperti saya. Penjelasannya mendalam dan sangat memprioritaskan privasi. Rekomendasi di Bandung!"
+
+                    <p class="text-gray-600 dark:text-gray-300 font-sans font-light leading-relaxed mb-8 text-[15px] flex-grow">
+                        "Lactation care di sini sangat membantu ibu baru. Penjelasannya mendalam dan sangat memprioritaskan privasi pasien."
                     </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-beige dark:bg-brand-darkelevated flex items-center justify-center text-brand-text dark:text-brand-darktext font-serif font-bold">N</div>
+
+                    <div class="w-8 h-px bg-brand-sage/20 dark:bg-brand-darkborder mb-6"></div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-cream dark:bg-brand-darkelevated flex items-center justify-center text-brand-sagedark dark:text-brand-darksage font-serif font-bold text-lg border border-brand-sage/10">N</div>
                         <div>
-                            <p class="text-sm font-semibold dark:text-brand-darktext">Bunda Nindy</p>
-                            <p class="text-xs text-gray-500 dark:text-brand-darkmuted">Layanan Laktasi</p>
+                            <p class="text-sm font-serif font-semibold text-brand-text dark:text-brand-darktext">Bunda Nindy</p>
+                            <p class="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-0.5">Layanan Laktasi</p>
                         </div>
                     </div>
                 </div>

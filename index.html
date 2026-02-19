@@ -407,9 +407,6 @@
                         <!-- Subtle Gradient Overlay at bottom only for depth, very light -->
                         <div class="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-black/5 to-transparent"></div>
                     </div>
-                    
-                    <!-- Hapus Badge 15+ Tahun (Removed per instructions) -->
-                    <!-- Hapus Decorative Element (Removed per instructions for clean look) -->
                 </div>
                 
                 <!-- Konten Kanan: Intro & Tim Bidan - REVISED VISUAL -->
@@ -530,7 +527,7 @@
             <!-- FEATURED BABY (SUPER IMPORTANT - THE TRUST BUILDER) -->
             <!-- IMPROVEMENT: Added cursor-zoom-in -->
             <div id="featured-baby" class="relative w-full h-[500px] lg:h-[600px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-premium mb-12 group cursor-zoom-in hidden dark:border dark:border-brand-darkborder" data-aos="fade-up" onclick="openLightbox(this)">
-                <!-- INTRUKSI: Gunakan foto ASLI bayi yang lahir di Bidan Maryamah Maternal Care -->
+                <!-- Image will be populated by JS based on sorting -->
                 <img id="feat-img" src="" alt="Featured Baby" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.05]" loading="lazy">
                 
                 <!-- Cinematic Overlay -->
@@ -565,146 +562,266 @@
             <!-- IMPROVEMENT: Added gap-4 for mobile, gap-6 for desktop -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6" id="gallery-grid">
                 
-                <!-- Gallery Item 1 -->
-                <!-- IMPROVEMENT: Added hover:-translate-y-1 -->
+                <!-- NEW IMAGES LOOP START -->
+
+                <!-- Item 1 (Newest) -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-18" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/XVhF4851s.png" alt="Baby Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Selamat datang ke dunia."</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="mom" data-date="2026-02-17" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/BwBn9636kQs.png" alt="Mom & Baby" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Kasih sayang ibu sepanjang masa."</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-16" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/o3141fuc.png" alt="Baby Portrait" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Momen pertama yang berharga."</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-15" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/FRj4148ICs.png" alt="Baby Sleeping" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Tidur lelap sang buah hati."</p>
+                    </div>
+                </div>
+
+                 <!-- Item 5 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-14" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/ruha5279PO.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Anugerah terindah."</p>
+                    </div>
+                </div>
+                
+                 <!-- Item 6 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-13" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/bUbk8302GLw.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                         <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Senyum kecil yang menenangkan."</p>
+                    </div>
+                </div>
+
+                 <!-- Item 7 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-12" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/MbUZ3021DcU.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                         <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Kebahagiaan keluarga."</p>
+                    </div>
+                </div>
+                
+                <!-- Item 8 -->
                 <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-11" onclick="openLightbox(this)">
-                    <img src="https://i.imghippo.com/files/Qpy5702CE.jpg" alt="Baby Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
-                    
-                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
-
-                    <div class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkmain/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 shadow-sm transition-opacity duration-300 group-hover:opacity-0">
-                        <i data-lucide="sparkles" class="w-3 h-3 text-brand-gold dark:text-brand-darkgold"></i>
-                        <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-text dark:text-brand-darktext">PMB Maryamah</span>
-                    </div>
-
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            "Selamat datang ke dunia, little star 🌟"
-                        </p>
-                        <p class="hidden metadata-text">Lahir di PMB Maryamah</p>
-                    </div>
-
-                    <a href="https://i.imghippo.com/files/Qpy5702CE.jpg" download class="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-brand-text text-white z-20 shadow-lg" onclick="event.stopPropagation()">
-                        <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
-                    </a>
-                </div>
-
-                <!-- Gallery Item 2 -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="spa" data-date="2026-02-05" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Perawatan Bayi" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <img src="https://i.imghippo.com/files/IoP9676w.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
                     <div class="new-badge-container absolute top-4 left-4 z-20"></div>
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            "Sesi perawatan bayi yang menenangkan."
-                        </p>
-                        <p class="hidden metadata-text">Layanan Kesehatan Bayi</p>
+                         <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Si kecil yang menggemaskan."</p>
                     </div>
-                    <a href="#" download class="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-brand-text text-white z-20 shadow-lg" onclick="event.stopPropagation()">
-                        <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
-                    </a>
                 </div>
 
-                <!-- Gallery Item 3 -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="mom" data-date="2026-01-20" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mom Massage" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
-                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
+                <!-- Item 9 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-10" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/KUB9012VsI.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="new-badge-container absolute top-4 left-4 z-20"></div>
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            "Momen me-time eksklusif untuk ibu hebat."
-                        </p>
-                        <p class="hidden metadata-text">Perawatan Nifas & Mom Treatment</p>
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Mimpi indah."</p>
                     </div>
-                    <a href="#" download class="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-brand-text text-white z-20 shadow-lg" onclick="event.stopPropagation()">
-                        <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
-                    </a>
                 </div>
 
-                 <!-- Gallery Item 4 -->
-                 <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-08" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Newborn Feet" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
-                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
-                    <div class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkmain/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 shadow-sm transition-opacity duration-300 group-hover:opacity-0">
-                        <i data-lucide="sparkles" class="w-3 h-3 text-brand-gold dark:text-brand-darkgold"></i>
-                        <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-text dark:text-brand-darktext">Bidan Maryamah</span>
-                    </div>
+                <!-- Item 10 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-09" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/ww1137Ho.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            "Langkah kecil pertama menuju dunia yang luas."
-                        </p>
-                        <p class="hidden metadata-text">Lahir di PMB Maryamah</p>
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Permata hati bunda."</p>
                     </div>
-                    <a href="#" download class="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-brand-text text-white z-20 shadow-lg" onclick="event.stopPropagation()">
-                        <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
-                    </a>
                 </div>
 
-                <!-- Gallery Item 5 -->
+                <!-- Item 11 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-08" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/enhS2122MH.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Tumbuh sehat, nak."</p>
+                    </div>
+                </div>
+
+                <!-- Item 12 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-07" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/NXu8213MD.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Cinta pandangan pertama."</p>
+                    </div>
+                </div>
+
+                 <!-- Item 13 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-06" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/mUOv9490geM.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Kehangatan keluarga."</p>
+                    </div>
+                </div>
+
+                 <!-- Item 14 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-05" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/FJU4464rnc.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Masa depan yang cerah."</p>
+                    </div>
+                </div>
+
+                <!-- Item 15 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-04" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/lFQ7994YEU.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Lahir dengan selamat."</p>
+                    </div>
+                </div>
+
+                <!-- Item 16 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-03" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/JmF7488TI.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Berkah yang luar biasa."</p>
+                    </div>
+                </div>
+
+                <!-- Item 17 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-02" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/pJh9855QkE.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Putri kecil."</p>
+                    </div>
+                </div>
+
+                <!-- Item 18 -->
                 <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-02-01" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sleeping Baby" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
-                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
-                    <div class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkmain/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 shadow-sm transition-opacity duration-300 group-hover:opacity-0">
-                        <i data-lucide="sparkles" class="w-3 h-3 text-brand-gold dark:text-brand-darkgold"></i>
-                        <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-text dark:text-brand-darktext">Bidan Maryamah</span>
+                    <img src="https://i.imghippo.com/files/R1845OQg.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Pangeran tampan."</p>
                     </div>
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            "Terlelap tenang dalam dekapan hangat."
-                        </p>
-                        <p class="hidden metadata-text">Lahir di PMB Maryamah</p>
-                    </div>
-                    <a href="#" download class="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-brand-text text-white z-20 shadow-lg" onclick="event.stopPropagation()">
-                        <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
-                    </a>
                 </div>
 
-                <!-- Gallery Item 6 -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="spa" data-date="2026-01-15" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Baby Hydrotherapy" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05] grayscale-[20%]" loading="lazy">
-                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            "Stimulasi sensorik motorik dalam air."
-                        </p>
-                        <p class="hidden metadata-text">Perawatan Kesehatan Bayi</p>
+                <!-- Item 19 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-31" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/bOSk2313Q.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Damai dalam tidur."</p>
                     </div>
-                    <a href="#" download class="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-brand-text text-white z-20 shadow-lg" onclick="event.stopPropagation()">
-                        <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
-                    </a>
                 </div>
 
-                <!-- Gallery Item 7 (Ekstra) -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="mom" data-date="2026-01-10" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pregnancy Care" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
-                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            "Kenyamanan ibu adalah kunci awal kebahagiaan sang buah hati."
-                        </p>
-                        <p class="hidden metadata-text">Konsultasi Kehamilan</p>
+                <!-- Item 20 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-30" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/mQai2960AM.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Malaikat kecil."</p>
                     </div>
-                    <a href="#" download class="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-brand-text text-white z-20 shadow-lg" onclick="event.stopPropagation()">
-                        <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
-                    </a>
                 </div>
 
-                <!-- Gallery Item 8 (Ekstra) -->
-                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-05" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Happy Baby" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
-                    <div class="new-badge-container absolute top-4 left-4 z-20"></div>
-                    <div class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkmain/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10 shadow-sm transition-opacity duration-300 group-hover:opacity-0">
-                        <i data-lucide="sparkles" class="w-3 h-3 text-brand-gold dark:text-brand-darkgold"></i>
-                        <span class="text-[10px] uppercase tracking-wider font-semibold text-brand-text dark:text-brand-darktext">Bidan Maryamah</span>
-                    </div>
+                <!-- Item 21 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-29" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/AHz8990gIk.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
-                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            "Senyum pertama yang akan selalu terkenang sepanjang masa."
-                        </p>
-                        <p class="hidden metadata-text">Lahir di PMB Maryamah</p>
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Sukacita tak terhingga."</p>
                     </div>
-                    <a href="#" download class="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-brand-text text-white z-20 shadow-lg" onclick="event.stopPropagation()">
-                        <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
-                    </a>
                 </div>
+
+                <!-- Item 22 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-28" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/KjGF7737dqc.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Harapan baru."</p>
+                    </div>
+                </div>
+
+                <!-- Item 23 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-27" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/rPW3071kU.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Kecantikan alami."</p>
+                    </div>
+                </div>
+
+                <!-- Item 24 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-26" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/VWS5614nc.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Sempurna."</p>
+                    </div>
+                </div>
+
+                <!-- Item 25 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-25" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/CAH7901LPc.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Pelukan hangat."</p>
+                    </div>
+                </div>
+
+                <!-- Item 26 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-24" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/fy3912Pj.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Cahaya mata."</p>
+                    </div>
+                </div>
+
+                <!-- Item 27 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-23" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/lAQl4798Isw.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Senyuman surga."</p>
+                    </div>
+                </div>
+
+                <!-- Item 28 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-22" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/XzP3996Qyo.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Tenang dan damai."</p>
+                    </div>
+                </div>
+
+                <!-- Item 29 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-21" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/qGkt2067NUM.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Kenangan manis."</p>
+                    </div>
+                </div>
+
+                <!-- Item 30 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-20" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/xf6603feA.png" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Buah hati tercinta."</p>
+                    </div>
+                </div>
+
+                 <!-- Item 31 -->
+                <div class="gallery-item group relative rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-premium-hover transition-all duration-700 cursor-zoom-in aspect-square hidden dark:border dark:border-brand-darkborder hover:-translate-y-1" data-category="newborn" data-date="2026-01-19" onclick="openLightbox(this)">
+                    <img src="https://i.imghippo.com/files/entc3045syU.jpg" alt="Newborn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 flex flex-col justify-end p-6 group-hover:opacity-100">
+                        <p class="text-white font-serif text-lg leading-snug caption-text drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">"Sambut hari baru."</p>
+                    </div>
+                </div>
+
+                <!-- END IMAGES LOOP -->
 
             </div>
 

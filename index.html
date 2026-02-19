@@ -391,101 +391,94 @@
     <!-- 2. TENTANG KLINIK (Pesan dari Bidan Maryamah) -->
     <!-- 3. Tambahkan Section PERSONAL MESSAGE -->
     <!-- IMPROVEMENT: Increased whitespace py-24 to md:py-32 -->
-    <section id="tentang" class="py-24 md:py-32 bg-white dark:bg-brand-darkmain relative">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <!-- UPDATE: Revised Visuals for Professional Look -->
+    <section id="tentang" class="py-24 md:py-32 bg-white dark:bg-brand-darkmain relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
                 
-                <!-- Founder Photo (Maryamah) - KIRI -->
+                <!-- Founder Photo (Maryamah) - KIRI - REVISED VISUAL CLEAN & MINIMALIST -->
                 <div class="relative group sticky top-24" data-aos="fade-right" data-aos-duration="1000">
-                    <!-- Frame Foto Utama dengan Soft Neutral Gradient -->
-                    <!-- EDIT: Menghapus border putih dan badge pengalaman sesuai request -->
-                    <div class="rounded-[2rem] overflow-hidden relative z-10 w-full md:w-5/6 mx-auto bg-gradient-to-br from-[#EAEFE9] to-[#F3F0E6] dark:from-brand-darkelevated dark:to-brand-darksurface shadow-2xl dark:shadow-none dark:border-brand-darkborder transition-transform duration-700 hover:scale-[1.01]">
-                        <!-- Foto Maryamah Asli -->
-                        <img src="https://i.imghippo.com/files/fygr7568pNI.png" alt="Bidan Maryamah, S.Tr.Keb" class="w-full h-auto object-cover aspect-[4/5] mix-blend-normal">
+                    <!-- Frame Foto Utama: Clean, No Badge, No Excessive Decor -->
+                    <div class="rounded-[3rem] overflow-hidden relative z-10 w-full md:w-5/6 mx-auto bg-gradient-to-b from-brand-cream to-[#e3eadd] dark:from-brand-darkelevated dark:to-brand-darkmain shadow-[0_20px_40px_-10px_rgba(0,0,0,0.08)] transition-transform duration-700 hover:scale-[1.005]">
+                        <!-- Foto Maryamah -->
+                        <!-- Menggunakan mix-blend-multiply untuk menyatukan background foto (jika putih) dengan background container -->
+                        <img src="https://i.imghippo.com/files/fygr7568pNI.png" alt="Bidan Maryamah, S.Tr.Keb" class="w-full h-auto object-cover aspect-[4/5] mix-blend-multiply dark:mix-blend-normal contrast-[1.02]">
                         
-                        <!-- Overlay Nama Founder -->
-                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-brand-text/95 via-brand-text/60 to-transparent pt-32 pb-8 px-8">
-                             <!-- EDIT: Perbesar nama Founder & Tambah Gold Accent Line -->
-                            <h3 class="text-3xl md:text-4xl font-serif text-white font-bold leading-tight">Maryamah, Am.Keb</h3>
-                            <div class="w-12 h-1 bg-brand-gold mt-3 mb-2 rounded-full"></div>
-                            <p class="text-brand-cream/80 font-medium text-sm uppercase tracking-widest">Founder & Bidan Penanggung Jawab</p>
-                        </div>
+                        <!-- Subtle Gradient Overlay at bottom only for depth, very light -->
+                        <div class="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-black/5 to-transparent"></div>
                     </div>
+                    
+                    <!-- Hapus Badge 15+ Tahun (Removed per instructions) -->
+                    <!-- Hapus Decorative Element (Removed per instructions for clean look) -->
                 </div>
                 
-                <!-- Konten Kanan: Intro & Tim Bidan -->
-                <div data-aos="fade-left" data-aos-duration="1000" class="flex flex-col justify-center pl-0 lg:pl-8">
-                    <span class="text-sm font-semibold tracking-widest text-brand-gold dark:text-brand-darkgold uppercase mb-3 block">Tim Medis Profesional</span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-brand-text dark:text-brand-darktext mb-8 leading-tight">Mengenal Tim Bidan Kami</h2>
+                <!-- Konten Kanan: Intro & Tim Bidan - REVISED VISUAL -->
+                <div data-aos="fade-left" data-aos-duration="1000" class="flex flex-col justify-center">
+                    <span class="text-sm font-bold tracking-[0.2em] text-brand-gold dark:text-brand-darkgold uppercase mb-4 block">Founder & Penanggung Jawab</span>
                     
-                    <!-- Intro Text -->
-                    <p class="text-lg font-light text-gray-600 dark:text-brand-darkmuted mb-12 leading-relaxed border-l-4 border-brand-sage/30 pl-6">
-                        "Selamat datang di <strong>Praktik Mandiri Bidan (PMB) Maryamah</strong>. Kami mendedikasikan diri untuk menyediakan layanan kesehatan ibu dan anak di <span class="text-brand-text dark:text-brand-darktext font-medium">Kota Banjar</span> dengan standar medis tertinggi, namun tetap dengan sentuhan hati."
+                    <!-- Nama Lebih Besar & Berwibawa -->
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif text-brand-text dark:text-brand-darktext mb-4 leading-tight">Maryamah, Am.Keb</h2>
+                    
+                    <!-- Garis Emas Aksen -->
+                    <div class="h-1 w-24 bg-brand-gold mb-8 rounded-full"></div>
+                    
+                    <!-- Intro Text (Authority Tone) -->
+                    <p class="text-lg md:text-xl font-light text-gray-600 dark:text-brand-darkmuted mb-12 leading-relaxed">
+                        "Mendedikasikan diri untuk memberikan pelayanan kebidanan yang <strong class="text-brand-text dark:text-brand-darktext font-medium">aman, nyaman, dan bermartabat</strong> bagi setiap ibu dan buah hati di Kota Banjar."
                     </p>
                     
-                    <!-- DATA TENAGA BIDAN (Grid Layout) -->
-                    <div class="space-y-6">
+                    <h3 class="text-lg font-serif font-bold text-brand-text dark:text-brand-darktext mb-6 flex items-center gap-3">
+                        <span class="w-8 h-px bg-brand-sage"></span>
+                        Tim Medis Profesional
+                    </h3>
+                    
+                    <!-- DATA TENAGA BIDAN (Grid Layout - Clean & Formal) -->
+                    <div class="space-y-4">
                         
-                        <!-- Card: Rita Purnamasari -->
-                        <!-- EDIT: Card Tim Bidan - Subtle Border, Less Shadow, Clean Look -->
-                        <div class="bg-white dark:bg-brand-darksurface p-6 rounded-xl border border-gray-100 dark:border-brand-darkborder hover:border-brand-sage/30 transition-colors duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <!-- Card: Rita Purnamasari (Clean Look) -->
+                        <div class="bg-white dark:bg-brand-darksurface p-5 rounded-xl shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] border border-brand-sage/10 dark:border-brand-darkborder flex items-center gap-5 transition-all duration-300 hover:border-brand-gold/30">
                             <div class="relative shrink-0">
-                                <img src="https://i.imghippo.com/files/UZyW3667sxo.png" alt="Bidan Rita Purnamasari" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border border-brand-beige dark:border-brand-darkelevated shadow-sm">
-                                <div class="absolute bottom-0 right-0 w-6 h-6 bg-brand-sage border-2 border-white dark:border-brand-darksurface rounded-full flex items-center justify-center" title="SIPB Aktif">
-                                    <i data-lucide="check" class="w-3 h-3 text-white stroke-[3]"></i>
+                                <img src="https://i.imghippo.com/files/UZyW3667sxo.png" alt="Bidan Rita Purnamasari" class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border border-brand-beige dark:border-brand-darkelevated shadow-sm">
+                                <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-600 border-2 border-white dark:border-brand-darksurface rounded-full flex items-center justify-center" title="SIPB Aktif">
+                                    <i data-lucide="check" class="w-2.5 h-2.5 text-white stroke-[3]"></i>
                                 </div>
                             </div>
                             <div class="flex-1">
-                                <h4 class="text-xl font-serif font-bold text-brand-text dark:text-brand-darktext mb-1">Rita Purnamasari, Amd.Keb</h4>
-                                <p class="text-sm text-gray-500 dark:text-brand-darkmuted font-medium uppercase tracking-wider mb-3">Bidan Pelaksana</p>
+                                <h4 class="text-lg font-serif font-bold text-brand-text dark:text-brand-darktext">Rita Purnamasari, Amd.Keb</h4>
+                                <p class="text-xs text-brand-sagedark dark:text-brand-darksage font-medium uppercase tracking-wider mb-2">Bidan Pelaksana</p>
                                 
-                                <!-- Legalitas Mini Badge (Formal Look) -->
-                                <!-- EDIT: Tombol SIPB jadi Badge Legalitas -->
-                                <button onclick="openSecureDoc('https://i.imghippo.com/files/vYy7838Ubc.jpg', 'SIPB: Rita Purnamasari, Amd.Keb')" class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-50 dark:bg-brand-darkelevated rounded-md border border-gray-200 dark:border-brand-darkborder text-xs text-gray-600 dark:text-gray-400 hover:bg-gray-100 hover:text-brand-text transition-colors group">
-                                    <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-gray-400 group-hover:text-brand-sage transition-colors"></i>
-                                    <span class="font-medium">Lihat Izin Praktik (SIPB)</span>
+                                <!-- Legalitas Badge Style (Bukan Tombol Marketing) -->
+                                <button onclick="openSecureDoc('https://i.imghippo.com/files/vYy7838Ubc.jpg', 'SIPB: Rita Purnamasari, Amd.Keb')" class="inline-flex items-center gap-2 px-3 py-1 bg-transparent border border-gray-200 dark:border-gray-700 rounded-md text-[9px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest hover:bg-gray-50 dark:hover:bg-brand-darkelevated hover:text-brand-text transition-colors cursor-pointer">
+                                    <i data-lucide="file-check" class="w-3 h-3"></i>
+                                    SIPB Terverifikasi
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Card: Srie Budi Susilowati -->
-                        <!-- EDIT: Card Tim Bidan - Subtle Border, Less Shadow, Clean Look -->
-                        <div class="bg-white dark:bg-brand-darksurface p-6 rounded-xl border border-gray-100 dark:border-brand-darkborder hover:border-brand-sage/30 transition-colors duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <!-- Card: Srie Budi Susilowati (Clean Look) -->
+                        <div class="bg-white dark:bg-brand-darksurface p-5 rounded-xl shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] border border-brand-sage/10 dark:border-brand-darkborder flex items-center gap-5 transition-all duration-300 hover:border-brand-gold/30">
                             <div class="relative shrink-0">
-                                <img src="https://i.imghippo.com/files/MwV6845Ka.jpeg" alt="Bidan Srie Budi Susilowati" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border border-brand-beige dark:border-brand-darkelevated shadow-sm">
-                                <div class="absolute bottom-0 right-0 w-6 h-6 bg-brand-sage border-2 border-white dark:border-brand-darksurface rounded-full flex items-center justify-center" title="SIPB Aktif">
-                                    <i data-lucide="check" class="w-3 h-3 text-white stroke-[3]"></i>
+                                <img src="https://i.imghippo.com/files/MwV6845Ka.jpeg" alt="Bidan Srie Budi Susilowati" class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border border-brand-beige dark:border-brand-darkelevated shadow-sm">
+                                <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-600 border-2 border-white dark:border-brand-darksurface rounded-full flex items-center justify-center" title="SIPB Aktif">
+                                    <i data-lucide="check" class="w-2.5 h-2.5 text-white stroke-[3]"></i>
                                 </div>
                             </div>
                             <div class="flex-1">
-                                <h4 class="text-xl font-serif font-bold text-brand-text dark:text-brand-darktext mb-1">Srie Budi Susilowati, Amd.Keb</h4>
-                                <div class="flex flex-wrap gap-2 mb-3">
-                                    <p class="text-sm text-gray-500 dark:text-brand-darkmuted font-medium uppercase tracking-wider">Bidan Pelaksana</p>
-                                    <span class="text-gray-300 dark:text-brand-darkborder">|</span>
-                                    <span class="text-xs text-brand-sagedark dark:text-brand-darksage font-medium bg-brand-sage/10 px-2 py-0.5 rounded">Sertifikasi Midwifery Care</span>
+                                <h4 class="text-lg font-serif font-bold text-brand-text dark:text-brand-darktext">Srie Budi Susilowati, Amd.Keb</h4>
+                                <div class="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                                    <p class="text-xs text-brand-sagedark dark:text-brand-darksage font-medium uppercase tracking-wider">Bidan Pelaksana</p>
+                                    <span class="hidden sm:block text-gray-300 text-[10px]">•</span>
+                                    <span class="text-[10px] text-brand-gold dark:text-brand-darkgold font-medium">Sertifikasi Midwifery Care</span>
                                 </div>
                                 
-                                <!-- Legalitas Mini Badge (Formal Look) -->
-                                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-50 dark:bg-brand-darkelevated rounded-md border border-gray-200 dark:border-brand-darkborder text-xs text-gray-600 dark:text-gray-400 cursor-not-allowed opacity-70">
-                                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-gray-400"></i>
-                                    <span class="font-medium">Dokumen Terverifikasi</span>
+                                <!-- Legalitas Badge Style -->
+                                <div class="inline-flex items-center gap-2 px-3 py-1 bg-transparent border border-gray-200 dark:border-gray-700 rounded-md text-[9px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest cursor-not-allowed opacity-80" title="Dokumen Internal">
+                                    <i data-lucide="shield" class="w-3 h-3"></i>
+                                    STR Valid
                                 </div>
                             </div>
                         </div>
 
-                    </div>
-                    
-                    <div class="mt-10 pt-8 border-t border-dashed border-gray-200 dark:border-brand-darkborder">
-                        <ul class="space-y-4">
-                            <li class="flex items-center gap-3 text-base text-gray-700 dark:text-brand-darktext font-light">
-                                <i data-lucide="check-circle-2" class="text-brand-sage dark:text-brand-darksage w-5 h-5 shrink-0"></i>
-                                Praktik Legal & Terdaftar Resmi Dinas Kesehatan
-                            </li>
-                            <li class="flex items-center gap-3 text-base text-gray-700 dark:text-brand-darktext font-light">
-                                <i data-lucide="check-circle-2" class="text-brand-sage dark:text-brand-darksage w-5 h-5 shrink-0"></i>
-                                Standar Operasional Prosedur (SOP) Kebidanan Modern
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>

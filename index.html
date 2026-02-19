@@ -393,19 +393,28 @@
     <!-- IMPROVEMENT: Increased whitespace py-24 to md:py-32 -->
     <section id="tentang" class="py-24 md:py-32 bg-white dark:bg-brand-darkmain relative">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="relative group" data-aos="fade-right" data-aos-duration="1000">
-                    <!-- IMPROVEMENT: Added hover scale to image container -->
-                    <div class="rounded-t-full rounded-b-3xl overflow-hidden relative z-10 w-full md:w-4/5 ml-auto border-8 border-white dark:border-brand-darksurface shadow-premium transition-transform duration-700 group-hover:scale-[1.02]">
-                        <!-- INTRUKSI: Ganti dengan foto ASLI Bidan Maryamah berpakaian dinas/profesional untuk trust maksimal -->
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bidan Maryamah, S.Tr.Keb" class="w-full h-auto object-cover dark:opacity-90">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                
+                <!-- Founder Photo (Maryamah) - KIRI -->
+                <div class="relative group sticky top-24" data-aos="fade-right" data-aos-duration="1000">
+                    <!-- Frame Foto Utama dengan Rasio 4:5 -->
+                    <div class="rounded-t-[2rem] rounded-b-3xl overflow-hidden relative z-10 w-full md:w-5/6 mx-auto border-8 border-white dark:border-brand-darksurface shadow-2xl transition-transform duration-700 group-hover:scale-[1.01]">
+                        <!-- Foto Maryamah Asli -->
+                        <img src="https://i.imghippo.com/files/fygr7568pNI.png" alt="Bidan Maryamah, S.Tr.Keb" class="w-full h-auto object-cover aspect-[4/5] bg-gray-100 dark:bg-gray-800">
+                        
+                        <!-- Overlay Nama Founder -->
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-brand-text/90 via-brand-text/40 to-transparent pt-20 pb-6 px-6">
+                            <h3 class="text-2xl font-serif text-white font-bold">Maryamah, Am.Keb</h3>
+                            <p class="text-brand-gold font-medium text-sm uppercase tracking-widest mt-1">Founder & Bidan Penanggung Jawab</p>
+                        </div>
                     </div>
+                    
                     <!-- Decorative element -->
-                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-beige dark:bg-brand-darkelevated rounded-full -z-0 blur-xl opacity-50"></div>
+                    <div class="absolute bottom-[-20px] left-[-20px] w-full h-full border-2 border-brand-gold rounded-t-[2.5rem] rounded-b-[2.5rem] -z-0 opacity-40"></div>
+                    <div class="absolute top-20 right-[-10px] w-32 h-32 bg-brand-sage/20 rounded-full blur-2xl -z-0"></div>
                     
                     <!-- Floating Experience Badge -->
-                    <!-- IMPROVEMENT: Added hover lift -->
-                    <div class="absolute top-10 right-0 bg-white dark:bg-brand-darksurface p-4 rounded-2xl shadow-premium border border-gray-100 dark:border-brand-darkborder z-20 flex items-center gap-3 animate-bounce hover:animate-none hover:-translate-y-2 transition-transform cursor-default" style="animation-duration: 3s;">
+                    <div class="absolute top-10 right-4 lg:-right-4 bg-white dark:bg-brand-darksurface p-4 rounded-2xl shadow-premium border border-gray-100 dark:border-brand-darkborder z-20 flex items-center gap-3 animate-bounce hover:animate-none hover:-translate-y-2 transition-transform cursor-default" style="animation-duration: 3s;">
                         <div class="w-12 h-12 rounded-full bg-brand-gold flex items-center justify-center text-white">
                             <i data-lucide="star" class="w-6 h-6 fill-white"></i>
                         </div>
@@ -416,78 +425,71 @@
                     </div>
                 </div>
                 
+                <!-- Konten Kanan: Intro & Tim Bidan -->
                 <div data-aos="fade-left" data-aos-duration="1000" class="flex flex-col justify-center">
-                    <span class="text-sm font-semibold tracking-widest text-brand-gold dark:text-brand-darkgold uppercase mb-2 block">Tim Bidan Profesional</span>
-                    <h2 class="text-3xl md:text-4xl font-serif text-brand-text dark:text-brand-darktext mb-6">Tenaga Kesehatan</h2>
+                    <span class="text-sm font-semibold tracking-widest text-brand-gold dark:text-brand-darkgold uppercase mb-2 block">Tim Medis Profesional</span>
+                    <h2 class="text-3xl md:text-4xl font-serif text-brand-text dark:text-brand-darktext mb-6">Mengenal Tim Bidan Kami</h2>
                     
-                    <!-- DATA TENAGA BIDAN UPDATE -->
-                    <div class="mb-8 space-y-6">
-                        <div class="border-l-4 border-brand-sage pl-4">
-                            <h3 class="text-xl font-serif font-bold text-brand-text dark:text-brand-darktext">Maryamah, Am.Keb</h3>
-                            <p class="text-brand-sagedark dark:text-brand-darksage font-medium">Bidan Penanggung Jawab</p>
-                            <p class="text-sm text-gray-500 dark:text-brand-darkmuted">Praktik Mandiri Bidan (PMB)</p>
-                        </div>
+                    <!-- Intro Text -->
+                    <p class="text-base md:text-lg font-light text-gray-600 dark:text-brand-darkmuted mb-10 leading-relaxed">
+                        "Selamat datang di <strong>Praktik Mandiri Bidan (PMB) Maryamah</strong>. Kami adalah tim bidan berdedikasi yang berkomitmen menyediakan layanan kesehatan ibu dan anak di <span class="text-brand-text dark:text-brand-darktext font-medium">Kota Banjar</span> dengan pendekatan yang humanis, ramah, dan profesional."
+                    </p>
+                    
+                    <!-- DATA TENAGA BIDAN (Grid Layout) -->
+                    <div class="space-y-6">
                         
-                        <div class="pl-5 border-l border-brand-gold/30 space-y-8">
-                            <!-- Update Profil Rita Purnamasari dengan Fitur Legalitas -->
-                            <div class="group">
-                                <h4 class="text-lg font-serif text-brand-text dark:text-brand-darktext">Rita Purnamasari, Amd.Keb</h4>
-                                <p class="text-sm text-gray-500 dark:text-brand-darkmuted uppercase tracking-wider mb-3">Bidan Pelaksana</p>
-                                
-                                <!-- FITUR BARU: Legalitas Praktik (Additive) -->
-                                <div class="inline-flex flex-col sm:flex-row sm:items-center gap-3 p-3 bg-brand-cream/40 dark:bg-brand-darkelevated/30 rounded-lg border border-brand-sage/20 transition-colors hover:border-brand-sage/40">
-                                    <div>
-                                        <p class="text-[10px] text-brand-gold dark:text-brand-darkgold font-bold uppercase tracking-widest mb-0.5">Legalitas Praktik</p>
-                                        <div class="flex items-center gap-2">
-                                            <div class="relative flex h-2 w-2">
-                                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                                            </div>
-                                            <p class="text-xs text-brand-sagedark dark:text-brand-darksage font-medium">SIPB Aktif <span class="opacity-70 font-light">(Surat Izin Praktik Bidan)</span></p>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Divider Vertical Desktop -->
-                                    <div class="hidden sm:block w-px h-8 bg-brand-sage/10 dark:bg-brand-darkborder mx-1"></div>
-                                    
-                                    <!-- Tombol Lihat Dokumen -->
-                                    <button onclick="openSecureDoc('https://i.imghippo.com/files/vYy7838Ubc.jpg', 'SIPB: Rita Purnamasari, Amd.Keb')" class="mt-1 sm:mt-0 text-xs font-medium text-brand-text dark:text-brand-darktext bg-white dark:bg-brand-darksurface border border-brand-gold/30 px-4 py-1.5 rounded hover:bg-brand-gold hover:text-white dark:hover:bg-brand-darkgold dark:hover:text-brand-darkmain transition-all duration-300 flex items-center gap-2 shadow-sm">
-                                        <i data-lucide="shield-check" class="w-3 h-3"></i>
-                                        [ Lihat SIPB ]
-                                    </button>
+                        <!-- Card: Rita Purnamasari -->
+                        <div class="bg-white dark:bg-brand-darksurface p-5 rounded-2xl shadow-sm border border-brand-beige dark:border-brand-darkborder hover:shadow-lg transition-all duration-300 flex items-center gap-5 group">
+                            <div class="relative shrink-0">
+                                <img src="https://i.imghippo.com/files/UZyW3667sxo.png" alt="Bidan Rita Purnamasari" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-brand-cream dark:border-brand-darkelevated shadow-md group-hover:scale-105 transition-transform duration-300">
+                                <div class="absolute bottom-0 right-0 w-6 h-6 bg-green-500 border-2 border-white dark:border-brand-darksurface rounded-full flex items-center justify-center" title="SIPB Aktif">
+                                    <i data-lucide="check" class="w-3 h-3 text-white stroke-[3]"></i>
                                 </div>
                             </div>
-
                             <div>
-                                <h4 class="text-lg font-serif text-brand-text dark:text-brand-darktext">Srie Budi Susilowati, Amd.Keb</h4>
-                                <p class="text-sm text-gray-500 dark:text-brand-darkmuted uppercase tracking-wider">Bidan Pelaksana</p>
+                                <h4 class="text-lg md:text-xl font-serif font-bold text-brand-text dark:text-brand-darktext">Rita Purnamasari, Amd.Keb</h4>
+                                <p class="text-sm text-brand-sagedark dark:text-brand-darksage font-medium uppercase tracking-wider mb-2">Bidan Pelaksana</p>
+                                
+                                <!-- Legalitas Mini Badge -->
+                                <button onclick="openSecureDoc('https://i.imghippo.com/files/vYy7838Ubc.jpg', 'SIPB: Rita Purnamasari, Amd.Keb')" class="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-cream/50 dark:bg-brand-darkelevated rounded-full border border-brand-sage/20 text-[10px] text-gray-600 dark:text-gray-400 hover:bg-brand-sage hover:text-white transition-colors">
+                                    <i data-lucide="shield-check" class="w-3 h-3"></i>
+                                    Lihat Izin Praktik (SIPB)
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- 5. Tambahkan GEO SEO Natural -->
-                    <div class="space-y-4 text-base md:text-lg">
-                        <p class="text-gray-600 dark:text-brand-darkmuted font-light leading-relaxed">
-                            "Selamat datang di <strong>Praktik Mandiri Bidan (PMB) Maryamah</strong>. Kami berkomitmen menyediakan layanan kesehatan ibu dan anak di wilayah <span class="text-brand-text dark:text-brand-darktext font-medium">Kota Banjar</span> dengan pendekatan yang humanis dan profesional."
-                        </p>
-                    </div>
-                    
-                    <div class="pl-6 border-l-2 border-brand-gold dark:border-brand-darkborder py-4 my-8 bg-brand-cream/50 dark:bg-brand-darkelevated/30 rounded-r-lg">
-                        <p class="text-lg font-serif italic text-brand-text dark:text-brand-darktext">
-                            "Praktik Mandiri Bidan Maryamah beroperasi secara legal dengan STR dan SIPB aktif sesuai ketentuan peraturan perundang-undangan yang berlaku."
-                        </p>
-                    </div>
 
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3 text-sm md:text-base text-gray-700 dark:text-brand-darktext font-light">
-                            <i data-lucide="check-circle-2" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 shrink-0"></i>
-                            Praktik Legal & Terdaftar Resmi
-                        </li>
-                        <li class="flex items-center gap-3 text-sm md:text-base text-gray-700 dark:text-brand-darktext font-light">
-                            <i data-lucide="check-circle-2" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 shrink-0"></i>
-                            Standar Pelayanan Kebidanan Profesional
-                        </li>
-                    </ul>
+                        <!-- Card: Srie Budi Susilowati -->
+                        <div class="bg-white dark:bg-brand-darksurface p-5 rounded-2xl shadow-sm border border-brand-beige dark:border-brand-darkborder hover:shadow-lg transition-all duration-300 flex items-center gap-5 group">
+                            <div class="relative shrink-0">
+                                <img src="https://i.imghippo.com/files/MwV6845Ka.jpeg" alt="Bidan Srie Budi Susilowati" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-brand-cream dark:border-brand-darkelevated shadow-md group-hover:scale-105 transition-transform duration-300">
+                                <div class="absolute bottom-0 right-0 w-6 h-6 bg-green-500 border-2 border-white dark:border-brand-darksurface rounded-full flex items-center justify-center" title="SIPB Aktif">
+                                    <i data-lucide="check" class="w-3 h-3 text-white stroke-[3]"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg md:text-xl font-serif font-bold text-brand-text dark:text-brand-darktext">Srie Budi Susilowati, Amd.Keb</h4>
+                                <p class="text-sm text-brand-sagedark dark:text-brand-darksage font-medium uppercase tracking-wider mb-2">Bidan Pelaksana</p>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-cream/50 dark:bg-brand-darkelevated rounded-full border border-brand-sage/20 text-[10px] text-gray-600 dark:text-gray-400">
+                                    <i data-lucide="award" class="w-3 h-3"></i>
+                                    Sertifikasi Midwifery Care
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="mt-8 pt-8 border-t border-gray-100 dark:border-brand-darkborder">
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-sm md:text-base text-gray-700 dark:text-brand-darktext font-light">
+                                <i data-lucide="check-circle-2" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 shrink-0"></i>
+                                Praktik Legal & Terdaftar Resmi
+                            </li>
+                            <li class="flex items-center gap-3 text-sm md:text-base text-gray-700 dark:text-brand-darktext font-light">
+                                <i data-lucide="check-circle-2" class="text-brand-gold dark:text-brand-darkgold w-5 h-5 shrink-0"></i>
+                                Standar Pelayanan Kebidanan Profesional
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1003,13 +1005,13 @@
 
                 <!-- Google Maps Real Embed -->
                 <div class="rounded-2xl overflow-hidden shadow-premium h-[400px] lg:h-auto bg-gray-100 dark:bg-brand-darksurface dark:border dark:border-brand-darkborder relative group" data-aos="fade-left">
-                    <iframe
-                        src="https://www.google.com/maps?q=&layer=c&cbll=-7.3704953,108.5710072&cbp=11,162.57,0,0,0&output=svembed"
-                        width="100%"
-                        height="100%"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
+                    <iframe 
+                        src="https://www.google.com/maps?q=&layer=c&cbll=-7.3704953,108.5710072&cbp=11,162.57,0,0,0&output=svembed" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade"
                         class="w-full h-full md:grayscale md:opacity-90 md:group-hover:grayscale-0 md:group-hover:opacity-100 transition-all duration-500 absolute inset-0 z-10 dark:opacity-80 dark:md:group-hover:opacity-100"
                         title="Street View Lokasi PMB Maryamah"></iframe>
